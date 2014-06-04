@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
     <dependencies>
         <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
@@ -8,13 +8,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="mainview">
             <connections>
                 <outlet property="ColorImg1" destination="VeB-Zo-99b" id="gWk-YW-lWR"/>
-                <outlet property="ColorImg2" destination="i4D-BJ-Vlu" id="yBO-iw-x23"/>
-                <outlet property="ColorImg3" destination="Zva-YK-cyf" id="gqw-6A-zTM"/>
-                <outlet property="ColorImg4" destination="jz3-1Y-KzZ" id="Hli-7c-aMA"/>
-                <outlet property="ColorImg5" destination="j6a-kh-zx0" id="ZPa-KL-QI0"/>
-                <outlet property="ColorImg6" destination="Wqr-Xw-Buz" id="z42-XM-44N"/>
-                <outlet property="ColorImg7" destination="cME-vX-5f2" id="b40-ds-eoA"/>
-                <outlet property="ColorImg8" destination="maC-ui-SWg" id="yVA-Qg-PCc"/>
                 <outlet property="HexaButton" destination="hmF-Kk-jzK" id="dfT-gj-9r2"/>
                 <outlet property="HexaTable" destination="Cnf-Bi-GXf" id="YXf-t0-FCJ"/>
                 <outlet property="HexaView" destination="Yk7-SX-AeY" id="cnO-oY-bDY"/>
@@ -37,35 +30,7 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="VeB-Zo-99b" userLabel="Color 1">
-                    <rect key="frame" x="112" y="16" width="98" height="117"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="i4D-BJ-Vlu" userLabel="Color 2">
-                    <rect key="frame" x="160" y="15" width="113" height="114"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Zva-YK-cyf" userLabel="Color 3">
-                    <rect key="frame" x="156" y="80" width="117" height="99"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="jz3-1Y-KzZ" userLabel="Color 4">
-                    <rect key="frame" x="160" y="128" width="113" height="116"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="j6a-kh-zx0" userLabel="Color 5">
-                    <rect key="frame" x="110" y="128" width="99" height="115"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Wqr-Xw-Buz" userLabel="Color 6">
-                    <rect key="frame" x="45" y="128" width="116" height="116"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="cME-vX-5f2" userLabel="Color 7">
-                    <rect key="frame" x="45" y="80" width="117" height="99"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="maC-ui-SWg" userLabel="Color 8">
-                    <rect key="frame" x="45" y="16" width="117" height="116"/>
+                    <rect key="frame" x="110" y="18" width="98" height="117"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="f3a-Iv-NPN" userLabel="Top Color">

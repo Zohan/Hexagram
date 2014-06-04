@@ -27,6 +27,7 @@
     UIButton *helpButton;
     UIButton *selectHexagramButton;
     UIButton *toggleMP3Button;
+    UIButton *playDrumButton;
     UIImageView *hexaIcon;
    
     AVAudioPlayer* theAudio;
@@ -66,15 +67,6 @@
 - (IBAction)Timer_Click:(id)sender;
 
 //+++++++++++++++ First Images+++++++++
-@property (strong, nonatomic) IBOutlet UIImageView *TopImg1;
-@property (strong, nonatomic) IBOutlet UIImageView *TopImg2;
-@property (strong, nonatomic) IBOutlet UIImageView *TopImg3;
-@property (strong, nonatomic) IBOutlet UIImageView *TopImg4;
-@property (strong, nonatomic) IBOutlet UIImageView *TopImg5;
-@property (strong, nonatomic) IBOutlet UIImageView *TopImg6;
-@property (strong, nonatomic) IBOutlet UIImageView *TopImg7;
-@property (strong, nonatomic) IBOutlet UIImageView *TopImg8;
-
 @property (strong, nonatomic) IBOutlet UILabel *Lable_1;
 @property (strong, nonatomic) IBOutlet UILabel *Lable_2;
 @property (strong, nonatomic) IBOutlet UILabel *Lable_3;

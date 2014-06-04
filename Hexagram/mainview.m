@@ -29,7 +29,7 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
 @end
 
 @implementation mainview
-@synthesize image1,TopImg1,TopImg2,TopImg3,TopImg4,TopImg5,TopImg6,TopImg7,TopImg8,Timer_Btn;
+@synthesize image1,Timer_Btn;
 @synthesize MainColorPlt2,MainColorPlt1,HexaButton,Lable_2,Lable_3,ColorPatern1,ColorPatern2;
 @synthesize ColorImg1,ColorImg2,ColorImg3,ColorImg4,ColorImg5,ColorImg6,ColorImg7,ColorImg8,Swipeimage,Over_LBL;
 @synthesize topImage, bottomImage;
@@ -188,16 +188,16 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
 }
 
 -(void) addPlayPauseButton {
-    btn_start = [UIButton buttonWithType:UIButtonTypeCustom];
+    playDrumButton = [UIButton buttonWithType:UIButtonTypeCustom];
     CGFloat width = [UIScreen mainScreen].bounds.size.width;
     CGFloat height = [UIScreen mainScreen].bounds.size.height;
-    btn_start.frame = CGRectMake(2*width/3, 2*height/3, 80.0, 80.0);
+    playDrumButton.frame = CGRectMake(2*width/3, 2*height/3, 80.0, 80.0);
     UIImage *drumImage=[UIImage imageNamed:@"Drum_Grey.png"];
-    [btn_start setTitle:@"" forState:UIControlStateNormal];
-    [btn_start setBackgroundImage:drumImage forState:UIControlStateNormal];
+    [playDrumButton setTitle:@"" forState:UIControlStateNormal];
+    [playDrumButton setBackgroundImage:drumImage forState:UIControlStateNormal];
     // [btn_start setTitle:@"start" forState:UIControlStateNormal];
-    [btn_start addTarget:self action:@selector(Btn) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:btn_start];
+    [playDrumButton addTarget:self action:@selector(Btn) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:playDrumButton];
 }
 
 -(void) addHelpButton {
@@ -285,16 +285,6 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
     [ColorImg8 setHidden:YES];
     
     
-    [TopImg1 setHidden:YES];
-    [TopImg2 setHidden:YES];
-    [TopImg3 setHidden:YES];
-    [TopImg4 setHidden:YES];
-    [TopImg5 setHidden:YES];
-    [TopImg6 setHidden:YES];
-    [TopImg7 setHidden:YES];
-    [TopImg8 setHidden:YES];
-    
-    
     srand((unsigned)time(0));
     random = (rand() % 20) / 10.0;
     CABasicAnimation *spin = [CABasicAnimation animationWithKeyPath:@"transform.rotation"];
@@ -367,131 +357,66 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
 - (void) playPauseUnstick
 {
     UIImage *drumImage=[UIImage imageNamed:@"Drum.png"];
-    [btn_start setTitle:@"" forState:UIControlStateNormal];
-    [btn_start setImage:drumImage forState:UIControlStateNormal];
+    [playDrumButton setTitle:@"" forState:UIControlStateNormal];
+    [playDrumButton setImage:drumImage forState:UIControlStateNormal];
     UIImage *newDrumImage=[UIImage imageNamed:@"Drum_Grey.png"];
-    [btn_start setTitle:@"Hello" forState:UIControlStateNormal];
-    [btn_start setImage:newDrumImage forState:UIControlStateNormal];
+    [playDrumButton setTitle:@"Hello" forState:UIControlStateNormal];
+    [playDrumButton setImage:newDrumImage forState:UIControlStateNormal];
 }
 
 - (void)Btn
 {
-    if(mp3isplay==20)
-    {
-        UIImage *drumImage=[UIImage imageNamed:@"Drum.png"];
-        [btn_start setTitle:@"" forState:UIControlStateNormal];
-        [btn_start setImage:drumImage forState:UIControlStateNormal];
-        [theAudio play];
-        mp3isplay=10;
-        if (CONTINUTIMES==20)
-        {
-            if (MaintimeSTR.length==0)
-            {
-                int time=10*60;
-                databaseDate = [NSDate dateWithTimeIntervalSinceNow:time];
-            }
-            else
-            {
-                int tt=[MaintimeSTR intValue]*60;
-                databaseDate = [NSDate dateWithTimeIntervalSinceNow:tt];
-                
-            }
-        }
-        else
-        {
-            NSLog(@"TIMES++++%d",timestop);
-            databaseDate = [NSDate dateWithTimeIntervalSinceNow:timestop];
-            
-        }
-        CONTINUTIMES=0;
-        
-        CountTimer=0;
-        playhexasound=20;
+    if ([theAudio isPlaying]) {
+        [self pauseDrumTrack];
+    } else {
+        [self playDrumTrack];
     }
-    
-   else if ([MP3_Player isPlaying])
-    {
-        UIImage *drumImage=[UIImage imageNamed:@"Drum_Grey.png"];
-        [btn_start setTitle:@"" forState:UIControlStateNormal];
-        [btn_start setImage:drumImage forState:UIControlStateNormal];
-        [self toggleMP3Track];
-        mp3isplay=20;
-        
-        [theAudio pause];
-        CountTimer=20;
-        playhexasound=0;
-    }
-    else
-    {
-        if (btn_start.selected==YES)
-        {
-        }
-        else
-        {
-            [theAudio play];
-            [MPNowPlayingInfoCenter defaultCenter];
-        }
-        
-        if (![theAudio isPlaying] && setfirsttimetimer != 20)
-        {
-            
-            UIImage *drumImage=[UIImage imageNamed:@"Drum.png"];
-            [btn_start setTitle:@"" forState:UIControlStateNormal];
-            [btn_start setImage:drumImage forState:UIControlStateNormal];
-            [theAudio play];
-            [MPNowPlayingInfoCenter defaultCenter];
-            
-            if (CONTINUTIMES==20)
-            {
-                if (MaintimeSTR.length==0)
-                {
-                    int time=10*60;
-                    databaseDate = [NSDate dateWithTimeIntervalSinceNow:time];
-                }
-                else
-                {
-                    int tt=[MaintimeSTR intValue]*60;
-                    databaseDate = [NSDate dateWithTimeIntervalSinceNow:tt];
-                    
-                }
-            }
-            else
-            {
-                NSLog(@"TIMES++++%d",timestop);
-                databaseDate = [NSDate dateWithTimeIntervalSinceNow:timestop];
-                
-            }
-            CONTINUTIMES=0;
-            
-            CountTimer=0;
-            playhexasound=20;
-            
-        }
-        else
-        {
-            UIImage *drumImage=[UIImage imageNamed:@"Drum_Grey.png"];
-            [btn_start setTitle:@"" forState:UIControlStateNormal];
-            [btn_start setImage:drumImage forState:UIControlStateNormal];
-            [theAudio pause];
-            [MP3_Player pause];
-            CountTimer=20;
-            playhexasound=0;
-        }
-    }
-    
+}
+
+-(void) playDrumTrack {
+    UIImage *drumImage=[UIImage imageNamed:@"Drum.png"];
+    [playDrumButton setTitle:@"" forState:UIControlStateNormal];
+    [playDrumButton setImage:drumImage forState:UIControlStateNormal];
+    [theAudio play];
+    CountTimer=0;
+    playhexasound = 20;
+}
+
+-(void) pauseDrumTrack {
+    UIImage *drumImage=[UIImage imageNamed:@"Drum_Grey.png"];
+    [playDrumButton setTitle:@"" forState:UIControlStateNormal];
+    [playDrumButton setImage:drumImage forState:UIControlStateNormal];
+    [theAudio pause];
+    [self pauseMP3Track];
+    CountTimer=20;
+    playhexasound=0;
 }
 
 -(void) toggleMP3Track {
+    if([MP3_Player isPlaying]) {
+        [self pauseMP3Track];
+    } else {
+        [self playMP3Track];
+    }
+}
+
+-(void) playMP3Track {
+    if (![MP3_Player isPlaying]) {
+        UIImage *imag=[UIImage imageNamed:@"Meditation.png"];
+        [toggleMP3Button setTitle:@"" forState:UIControlStateNormal];
+        [toggleMP3Button setBackgroundImage:imag forState:UIControlStateNormal];
+        [MP3_Player play];
+        [self playDrumTrack];
+    }
+}
+
+-(void) pauseMP3Track {
     if([MP3_Player isPlaying]) {
         UIImage *imag=[UIImage imageNamed:@"Meditation_grey.png"];
         [toggleMP3Button setTitle:@"" forState:UIControlStateNormal];
         [toggleMP3Button setBackgroundImage:imag forState:UIControlStateNormal];
         [MP3_Player pause];
-    } else {
-        UIImage *imag=[UIImage imageNamed:@"Meditation.png"];
-        [toggleMP3Button setTitle:@"" forState:UIControlStateNormal];
-        [toggleMP3Button setBackgroundImage:imag forState:UIControlStateNormal];
-        [MP3_Player play];
+        [self pauseDrumTrack];
     }
 }
 
@@ -588,9 +513,6 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
     [HexaButton setUserInteractionEnabled:NO];
     [Swipeimgeview setUserInteractionEnabled:NO];
     //[bagua setHidden: YES];
-   
-   // image1.transform = CGAffineTransformMakeRotation(M_PI * (4.000));
-    //bagua.transform = CGAffineTransformMakeRotation(M_PI * (4.000));
     
     NSLog(@"Transform: %f", atan2(bagua.transform.b, bagua.transform.a));
     
@@ -610,25 +532,7 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
     [MainColorPlt1 setHidden:NO];
     [ColorPatern1 setHidden:NO];
     [ColorPatern2 setHidden:NO];
-    
-    
-    //+++++++++++++++++++++++++++++ COLOR IMAGE CODE ++++++++++++++++++++++++++++
-    
-     Color1=[[NSMutableArray alloc]initWithObjects:@"Color1-1.png",@"Color1-2.png",@"Color1-3.png",@"Color1-4.png",@"Color1-5.png",@"Color1-6.png",@"Color1-7.png",@"Color1-8.png", nil];
-    
-    Color2=[[NSMutableArray alloc]initWithObjects:@"Color2-1.png",@"Color2-2.png",@"Color2-3.png",@"Color2-4.png",@"Color2-5.png",@"Color2-6.png",@"Color2-7.png",@"Color2-8.png", nil];
-    
-    Color3=[[NSMutableArray alloc]initWithObjects:@"Color3-1.png",@"Color3-2.png",@"Color3-3.png",@"Color3-4.png",@"Color3-5.png",@"Color3-6.png",@"Color3-7.png",@"Color3-8.png", nil];
-    
-    Color4=[[NSMutableArray alloc]initWithObjects:@"Color4-1.png",@"Color4-2.png",@"Color4-3.png",@"Color4-4.png",@"Color4-5.png",@"Color4-6.png",@"Color4-7.png",@"Color4-8.png", nil];
-    
-    Color5=[[NSMutableArray alloc]initWithObjects:@"Color5-1.png",@"Color5-2.png",@"Color5-3.png",@"Color5-4.png",@"Color5-5.png",@"Color5-6.png",@"Color5-7.png",@"Color5-8.png", nil];
-    
-    Color6=[[NSMutableArray alloc]initWithObjects:@"Color6-1.png",@"Color6-2.png",@"Color6-3.png",@"Color6-4.png",@"Color6-5.png",@"Color6-6.png",@"Color6-7.png",@"Color6-8.png", nil];
-    
-    Color7=[[NSMutableArray alloc]initWithObjects:@"Color7-1.png",@"Color7-2.png",@"Color7-3.png",@"Color7-4.png",@"Color7-5.png",@"Color7-6.png",@"Color7-7.png",@"Color7-8.png", nil];
-    
-    Color8=[[NSMutableArray alloc]initWithObjects:@"Color8-1.png",@"Color8-2.png",@"Color8-3.png",@"Color8-4.png",@"Color8-5.png",@"Color8-6.png",@"Color8-7.png",@"Color8-8.png", nil];
+    [ColorImg1 setHidden:NO];
     
     int randomElement = rand()%8+1;
     MainPattern1= [NSString stringWithFormat:@"%dBtn.png",randomElement];
@@ -640,15 +544,18 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
     ColorPatern2.image=ptnimg11;
     
     [self levelBagua];
+    [self setTopElement:randomElement];
     
     [self MainLable];
     
 }
 
 -(void)setTopElement:(int) element {
-    MainPattern2= [NSString stringWithFormat:@"%dBtn.png",[self getBottomBaguaElement]];
-    UIImage *ptnimg11=[UIImage imageNamed:MainPattern2];
-    ColorPatern2.image=ptnimg11;
+    NSString * topImageName = [NSString stringWithFormat:@"Color1-%d.png",element];
+    UIImage *ptnimg11=[UIImage imageNamed:topImageName];
+    ColorImg1.image=ptnimg11;
+    [self.view bringSubviewToFront:ColorImg1];
+    [self.view bringSubviewToFront:btn_start];
 }
 
 -(void)MainLable
@@ -1084,7 +991,7 @@ CGFloat angleBetweenLinesInDegrees(CGPoint beginLineA, CGPoint endLineA, CGPoint
     [self getBottomBaguaElement];
 
     // 10 is enough angular change to say the user wants to spin the wheel
-    if(abs(angle) > 10) {
+    if(abs(angle) > 1) {
         [self Swipewheel];
     }
 }
