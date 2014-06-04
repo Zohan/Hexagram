@@ -132,12 +132,8 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
         
         UIImageView *image_start = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Wheel Updated 2"]];
         image_start.frame = CGRectMake(46, 35, 225, 225);
-        image2 = image_start;
-        [self.view addSubview:image2];
-        
-        Swipeimgeview = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@""]];
-        Swipeimgeview.frame = CGRectMake(50, 47, 215, 228);
-        [self.view addSubview:Swipeimgeview];
+        bagua = image_start;
+        [self.view addSubview:bagua];
         
                 
         btn_start = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -155,13 +151,8 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
         
         UIImageView *image_start = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Wheel Updated 2"]];
         image_start.frame = CGRectMake(46, 17, 225, 225);
-        image2 = image_start;
-        [self.view addSubview:image2];
-        
-        Swipeimgeview = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@""]];
-        Swipeimgeview.frame = CGRectMake(50, 47, 215, 228);
-        [self.view addSubview:Swipeimgeview];
-        
+        bagua = image_start;
+        [self.view addSubview:bagua];
         
         btn_start = [UIButton buttonWithType:UIButtonTypeCustom];
         btn_start.frame = CGRectMake(125, 95, 70.0, 70.0);
@@ -247,7 +238,7 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
 
 -(void) tapDetected : (id) sender
 {
-    [self Swipewheel];
+    //[self Swipewheel];
 }
 
 -(void)Swipewheel
@@ -282,7 +273,7 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
     
     [btn_start setUserInteractionEnabled:NO];
     [image1 setHidden:NO];
-    [image2 setHidden:NO];
+    [bagua setHidden:NO];
     
     [ColorImg1 setHidden:YES];
     [ColorImg2 setHidden:YES];
@@ -316,8 +307,8 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
     
     [spin setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];
     
-    [[image2 layer] addAnimation:spin forKey:nil];
-    image2.transform = CGAffineTransformMakeRotation(M_PI * (10.0+random-orign));
+    [[bagua layer] addAnimation:spin forKey:nil];
+    bagua.transform = CGAffineTransformMakeRotation(M_PI * (10.0+random-orign));
     orign = 10.0+random+orign;
     orign = fmodf(orign, 2.0);
     
@@ -596,15 +587,19 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
 {
     [HexaButton setUserInteractionEnabled:NO];
     [Swipeimgeview setUserInteractionEnabled:NO];
+    //[bagua setHidden: YES];
    
    // image1.transform = CGAffineTransformMakeRotation(M_PI * (4.000));
-    //image2.transform = CGAffineTransformMakeRotation(M_PI * (4.000));
+    //bagua.transform = CGAffineTransformMakeRotation(M_PI * (4.000));
+    
+    NSLog(@"Transform: %f", atan2(bagua.transform.b, bagua.transform.a));
+    
+    bagua.transform = CGAffineTransformMakeRotation(M_PI * atan2(bagua.transform.b, bagua.transform.a));
    
     [theAudio stop];
     [MP3_Player stop];
     
    // [image1 setHidden:YES];
-    [image2 setHidden:YES];
     [HexaButton setHidden:NO];
     [selectHexagramButton setHidden:NO];
     [Lable_2 setHidden:NO];
@@ -615,27 +610,6 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
     [MainColorPlt1 setHidden:NO];
     [ColorPatern1 setHidden:NO];
     [ColorPatern2 setHidden:NO];
-    
-    
-    
-    [TopImg1 setHidden:NO];
-    [TopImg2 setHidden:NO];
-    [TopImg3 setHidden:NO];
-    [TopImg4 setHidden:NO];
-    [TopImg5 setHidden:NO];
-    [TopImg6 setHidden:NO];
-    [TopImg7 setHidden:NO];
-    [TopImg8 setHidden:NO];
-    
-    
-    [ColorImg1 setHidden:NO];
-    [ColorImg2 setHidden:NO];
-    [ColorImg3 setHidden:NO];
-    [ColorImg4 setHidden:NO];
-    [ColorImg5 setHidden:NO];
-    [ColorImg6 setHidden:NO];
-    [ColorImg7 setHidden:NO];
-    [ColorImg8 setHidden:NO];
     
     
     //+++++++++++++++++++++++++++++ COLOR IMAGE CODE ++++++++++++++++++++++++++++
@@ -656,191 +630,21 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
     
     Color8=[[NSMutableArray alloc]initWithObjects:@"Color8-1.png",@"Color8-2.png",@"Color8-3.png",@"Color8-4.png",@"Color8-5.png",@"Color8-6.png",@"Color8-7.png",@"Color8-8.png", nil];
     
-    
-    
-    /////////////////////// SECOND ROUND 1 /////////////////
-    
-    NSUInteger count11 = [Color1 count];
-    for (NSUInteger i = 0; i < count11; ++i)
-    {
-        // Select a random element between i and end of array to swap with.
-        NSInteger nElements = count11 - i;
-        NSInteger n = arc4random_uniform(nElements) + i;
-        [Color1 exchangeObjectAtIndex:i withObjectAtIndex:n];
-    }
-    UIImage *img11=[UIImage imageNamed:[Color1 objectAtIndex:0]];
-    ColorImg1.image=img11;
-    
     NSString *str11=[Color1 objectAtIndex:0];
     
     MainPattern1=str11;
     MainPattern1=[[MainPattern1 componentsSeparatedByString:@"-"] objectAtIndex:1];
     MainPattern1 = [MainPattern1 stringByReplacingCharactersInRange:NSMakeRange(1, 1) withString:@"Btn."];
-    
-    
     UIImage *ptnimg11=[UIImage imageNamed:MainPattern1];
     ColorPatern1.image=ptnimg11;
-   
-    str11 = [str11 stringByReplacingCharactersInRange:NSMakeRange(5, 1) withString:@"2"];
-    int aa=[Color2 indexOfObject:str11];
-    [Color2 removeObjectAtIndex:aa];
-    [Color3 removeObjectAtIndex:aa];
-    [Color4 removeObjectAtIndex:aa];
-    [Color5 removeObjectAtIndex:aa];
-    [Color6 removeObjectAtIndex:aa];
-    [Color7 removeObjectAtIndex:aa];
-    [Color8 removeObjectAtIndex:aa];
-    
-    
-    /////////////////////// SECOND ROUND 2 /////////////////
-    
-    NSUInteger count22 = [Color2 count];
-    for (NSUInteger i = 0; i < count22; ++i)
-    {
-        // Select a random element between i and end of array to swap with.
-        NSInteger nElements = count22 - i;
-        NSInteger n = arc4random_uniform(nElements) + i;
-        [Color2 exchangeObjectAtIndex:i withObjectAtIndex:n];
-    }
-    UIImage *img22=[UIImage imageNamed:[Color2 objectAtIndex:0]];
-    ColorImg2.image=img22;
-    
-    NSString *str22=[Color2 objectAtIndex:0];
-    str22 = [str22 stringByReplacingCharactersInRange:NSMakeRange(5, 1) withString:@"3"];
-    int bb=[Color3 indexOfObject:str22];
-    [Color3 removeObjectAtIndex:bb];
-    [Color4 removeObjectAtIndex:bb];
-    [Color5 removeObjectAtIndex:bb];
-    [Color6 removeObjectAtIndex:bb];
-    [Color7 removeObjectAtIndex:bb];
-    [Color8 removeObjectAtIndex:bb];
-    
-    /////////////////////// SECOND ROUND 3 /////////////////
-    
-    NSUInteger count33 = [Color3 count];
-    for (NSUInteger i = 0; i < count33; ++i)
-    {
-        // Select a random element between i and end of array to swap with.
-        NSInteger nElements = count33 - i;
-        NSInteger n = arc4random_uniform(nElements) + i;
-        [Color3 exchangeObjectAtIndex:i withObjectAtIndex:n];
-    }
-    UIImage *img33=[UIImage imageNamed:[Color3 objectAtIndex:0]];
-    ColorImg3.image=img33;
-    
-    NSString *str33=[Color3 objectAtIndex:0];
-    str33 = [str33 stringByReplacingCharactersInRange:NSMakeRange(5, 1) withString:@"4"];
-    int cc=[Color4 indexOfObject:str33];
-    [Color4 removeObjectAtIndex:cc];
-    [Color5 removeObjectAtIndex:cc];
-    [Color6 removeObjectAtIndex:cc];
-    [Color7 removeObjectAtIndex:cc];
-    [Color8 removeObjectAtIndex:cc];
-    
-    /////////////////////// SECOND ROUND 4 /////////////////
-    
-    NSUInteger count44 = [Color4 count];
-    for (NSUInteger i = 0; i < count44; ++i)
-    {
-        // Select a random element between i and end of array to swap with.
-        NSInteger nElements = count44 - i;
-        NSInteger n = arc4random_uniform(nElements) + i;
-        [Color4 exchangeObjectAtIndex:i withObjectAtIndex:n];
-    }
-    UIImage *img44=[UIImage imageNamed:[Color4 objectAtIndex:0]];
-    ColorImg4.image=img44;
-    
-    NSString *str44=[Color4 objectAtIndex:0];
-    str44 = [str44 stringByReplacingCharactersInRange:NSMakeRange(5, 1) withString:@"5"];
-    int dd=[Color5 indexOfObject:str44];
-    [Color5 removeObjectAtIndex:dd];
-    [Color6 removeObjectAtIndex:dd];
-    [Color7 removeObjectAtIndex:dd];
-    [Color8 removeObjectAtIndex:dd];
-    
-    /////////////////////// SECOND ROUND 5 /////////////////
-    
-    NSUInteger count55 = [Color5 count];
-    for (NSUInteger i = 0; i < count55; ++i)
-    {
-        // Select a random element between i and end of array to swap with.
-        NSInteger nElements = count55 - i;
-        NSInteger n = arc4random_uniform(nElements) + i;
-        [Color5 exchangeObjectAtIndex:i withObjectAtIndex:n];
-    }
-    UIImage *img55=[UIImage imageNamed:[Color5 objectAtIndex:0]];
-    ColorImg5.image=img55;
-    
-    NSString *str55=[Color5 objectAtIndex:0];
-    str55 = [str55 stringByReplacingCharactersInRange:NSMakeRange(5, 1) withString:@"6"];
-    int ee=[Color6 indexOfObject:str55];
-    [Color6 removeObjectAtIndex:ee];
-    [Color7 removeObjectAtIndex:ee];
-    [Color8 removeObjectAtIndex:ee];
-    
     
     MainPattern2=[Color5 objectAtIndex:0];
     MainPattern2=[[MainPattern2 componentsSeparatedByString:@"-"] objectAtIndex:1];
     MainPattern2 = [MainPattern2 stringByReplacingCharactersInRange:NSMakeRange(1, 1) withString:@"Btn."];
     UIImage *ptrnimg2=[UIImage imageNamed:MainPattern2];
     ColorPatern2.image=ptrnimg2;
-
     
-    
-    /////////////////////// SECOND ROUND 6 /////////////////
-    
-    NSUInteger count66 = [Color6 count];
-    for (NSUInteger i = 0; i < count66; ++i)
-    {
-        // Select a random element between i and end of array to swap with.
-        NSInteger nElements = count66 - i;
-        NSInteger n = arc4random_uniform(nElements) + i;
-        [Color6 exchangeObjectAtIndex:i withObjectAtIndex:n];
-    }
-    UIImage *img66=[UIImage imageNamed:[Color6 objectAtIndex:0]];
-    ColorImg6.image=img66;
-    
-    NSString *str66=[Color6 objectAtIndex:0];
-    str66 = [str66 stringByReplacingCharactersInRange:NSMakeRange(5, 1) withString:@"7"];
-    int ff=[Color7 indexOfObject:str66];
-    [Color7 removeObjectAtIndex:ff];
-    [Color8 removeObjectAtIndex:ff];
-    
-    /////////////////////// SECOND ROUND 7 /////////////////
-    
-    NSUInteger count77 = [Color7 count];
-    for (NSUInteger i = 0; i < count77; ++i)
-    {
-        // Select a random element between i and end of array to swap with.
-        NSInteger nElements = count77 - i;
-        NSInteger n = arc4random_uniform(nElements) + i;
-        [Color7 exchangeObjectAtIndex:i withObjectAtIndex:n];
-    }
-    UIImage *img77=[UIImage imageNamed:[Color7 objectAtIndex:0]];
-    ColorImg7.image=img77;
-    
-    NSString *str77=[Color7 objectAtIndex:0];
-    str77 = [str77 stringByReplacingCharactersInRange:NSMakeRange(5, 1) withString:@"8"];
-    int gg=[Color8 indexOfObject:str77];
-    [Color8 removeObjectAtIndex:gg];
-    
-    
-    /////////////////////// SECOND ROUND 8 /////////////////
-    
-    NSUInteger count88 = [Color8 count];
-    for (NSUInteger i = 0; i < count88; ++i)
-    {
-        // Select a random element between i and end of array to swap with.
-        NSInteger nElements = count88 - i;
-        NSInteger n = arc4random_uniform(nElements) + i;
-        [Color8 exchangeObjectAtIndex:i withObjectAtIndex:n];
-    }
-    UIImage *img88=[UIImage imageNamed:[Color8 objectAtIndex:0]];
-    ColorImg8.image=img88;
-
-    MainClor8=[Color8 objectAtIndex:0];
-    MainClor8 = [MainClor8 stringByReplacingCharactersInRange:NSMakeRange(0, 7) withString:@""];
-    MainClor8 = [MainClor8 stringByReplacingCharactersInRange:NSMakeRange(1, 1) withString:@"ColorPlate."];
+    [self levelBagua];
     
     [self MainLable];
     
@@ -1187,24 +991,80 @@ CGFloat angleBetweenLinesInDegrees(CGPoint beginLineA, CGPoint endLineA, CGPoint
     return (atanA - atanB) * 180 / M_PI;
 }
 
--(void) touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+-(int)getBottomElement {
+    float baguaAngle = atan2(bagua.transform.b, bagua.transform.a);
+    NSLog(@"Transform: %f", baguaAngle);
+    
+    int element = 0;
+    
+    if(baguaAngle >= 7*M_PI/8 || baguaAngle <= -7*M_PI/8) {
+        element = 2;
+    } else if(baguaAngle >= -7*M_PI/8 && baguaAngle <= -5*M_PI/8) {
+        element = 1;
+    } else if(baguaAngle >= -5*M_PI/8 && baguaAngle <= -3*M_PI/8) {
+        element = 8;
+    } else if(baguaAngle >= -3*M_PI/8 && baguaAngle <= -1*M_PI/8) {
+        element = 7;
+    } else if(baguaAngle >= -1*M_PI/8 && baguaAngle <= 1*M_PI/8) {
+        element = 6;
+    } else if(baguaAngle >= 1*M_PI/8 && baguaAngle <= 3*M_PI/8) {
+        element = 5;
+    } else if(baguaAngle >= 3*M_PI/8 && baguaAngle <= 5*M_PI/8) {
+        element = 4;
+    } else if(baguaAngle >= 5*M_PI/8 && baguaAngle <= 7*M_PI/8) {
+        element = 3;
+    }
+    return element;
+}
+
+-(void) levelBagua{
+    int element = [self getBottomElement];
+    switch (element) {
+        case 1:
+            bagua.transform = CGAffineTransformMakeRotation(-6*M_PI/8);
+            break;
+            
+        case 2:
+            bagua.transform = CGAffineTransformMakeRotation(M_PI);
+            break;
+            
+        case 3:
+            bagua.transform = CGAffineTransformMakeRotation(6*M_PI/8);
+            break;
+            
+        case 4:
+            bagua.transform = CGAffineTransformMakeRotation(4*M_PI/8);
+            break;
+            
+        case 5:
+            bagua.transform = CGAffineTransformMakeRotation(2*M_PI/8);
+            break;
+            
+        case 6:
+            bagua.transform = CGAffineTransformMakeRotation(0);
+            break;
+            
+        case 7:
+            bagua.transform = CGAffineTransformMakeRotation(-2*M_PI/8);
+            break;
+            
+        case 8:
+            bagua.transform = CGAffineTransformMakeRotation(-4*M_PI/8);
+            break;
+    }
+}
+
+-(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    /*CGFloat radians = atan2f(image2.transform.b, image2.transform.a);
+    CGPoint curPoint  = [[touches anyObject] locationInView:bagua];
+    CGPoint prevPoint = [[touches anyObject] previousLocationInView:bagua];
+    
     UITouch *touch = [touches anyObject];
     CGPoint touchPoint = [touch locationInView:self.view];
-    float dy = image2.frame.origin.y - touchPoint.y;
-    float dx = image2.frame.origin.x - touchPoint.x;
-    CGFloat height = [UIScreen mainScreen].bounds.size.height;
-    
-    if(touchPoint.y < height/2) {
-        //image1.transform = CGAffineTransformMakeRotation(atan2(dy1,dx1) - DEGREES_TO_RADIANS(90));
-        image2.transform = CGAffineTransformMakeRotation(atan2(dy,dx));
-    }*/
-    CGPoint curPoint  = [[touches anyObject] locationInView:image2];
-    CGPoint prevPoint = [[touches anyObject] previousLocationInView:image2];
     
     // calculate rotation angle between two points
-    CGFloat angle = angleBetweenLinesInDegrees(image2.center, prevPoint, image2.center, curPoint);
+    CGFloat angle = angleBetweenLinesInDegrees(bagua.center, prevPoint, bagua.center, curPoint);
+    //NSLog(@"%f", angle);
     
     // Flip
     if (angle > 180) {
@@ -1212,7 +1072,26 @@ CGFloat angleBetweenLinesInDegrees(CGPoint beginLineA, CGPoint endLineA, CGPoint
     } else if (angle < -180) {
         angle += 360;
     }
-    image2.layer.transform = CATransform3DRotate(image2.layer.transform, DEGREES_TO_RADIANS(angle), .0, .0, 1.0);
+    CGFloat height = [UIScreen mainScreen].bounds.size.height;
+    if(touchPoint.y < height/2) {
+        bagua.layer.transform = CATransform3DRotate(bagua.layer.transform, DEGREES_TO_RADIANS(angle), .0, .0, 1.0);
+    }
+
+}
+
+-(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+    CGPoint curPoint  = [[touches anyObject] locationInView:bagua];
+    CGPoint prevPoint = [[touches anyObject] previousLocationInView:bagua];
+    
+    // calculate rotation angle between two points
+    CGFloat angle = angleBetweenLinesInDegrees(bagua.center, prevPoint, bagua.center, curPoint);
+    
+    [self getBottomElement];
+
+    // 10 is enough angular change to say the user wants to spin the wheel
+    if(abs(angle) > 10) {
+        [self Swipewheel];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -1426,16 +1305,7 @@ CGFloat angleBetweenLinesInDegrees(CGPoint beginLineA, CGPoint endLineA, CGPoint
     {
         MainPattern2 =@"9";
     }
-    
-//    if ([MainPattern1 intValue]==4)
-//    {
-//        MainPattern1 =@"6";
-//    }
-//    if ([MainPattern2 intValue] ==6)
-//    {
-//        MainPattern2 =@"4";
-//    }
-    
+
     NSString *str1=[NSString stringWithFormat:@"%@%@",pattern1,@"Btn.png"];
      NSString *str2=[NSString stringWithFormat:@"%@%@",pattern2,@"Btn.png"];
     
@@ -1482,15 +1352,6 @@ CGFloat angleBetweenLinesInDegrees(CGPoint beginLineA, CGPoint endLineA, CGPoint
     
     Hexaname=[Mainarr objectAtIndex:indexPath.row];
     [self CHK_MP3_Sound];
-    
-    //[theAudio play];
-    
-    /*NSTimer *gaptimer = [NSTimer scheduledTimerWithTimeInterval:1.0
-                                                         target:self
-                                                       selector:@selector(Sound_Gape)
-                                                       userInfo:nil
-                                                        repeats:NO];*/
- //  NSLog(@"%@",gaptimer);
     
     [MPNowPlayingInfoCenter defaultCenter];
     NSLog(@"tabledamru==%d",damru);

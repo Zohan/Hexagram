@@ -18,7 +18,7 @@
     
     int soundgapint;
     
-    UIImageView *image2;
+    UIImageView *bagua;
     float random;
     float orign;
     NSMutableArray *arr,*arr2,*arr3,*arr4,*arr5,*arr6,*arr7,*arr8;
