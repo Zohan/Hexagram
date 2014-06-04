@@ -15,7 +15,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1234"
             endingLineNumber = "1234"
-            landmarkName = "-Stop_Time_Sound"
+            landmarkName = "-toggleTimer"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -63,7 +63,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "753"
             endingLineNumber = "753"
-            landmarkName = "-audioPlayerDidFinishPlaying:successfully:"
+            landmarkName = "-MainLable"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -79,8 +79,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "756"
             endingLineNumber = "756"
-            landmarkName = "-audioPlayerDidFinishPlaying:successfully:"
-            landmarkType = "5">
+            landmarkName = "@implementation mainview"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -287,7 +287,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1512"
             endingLineNumber = "1512"
-            landmarkName = "-PlayMP3"
+            landmarkName = "-helpClicked:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -303,7 +303,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1393"
             endingLineNumber = "1393"
-            landmarkName = "-CHK_MP3_Sound"
+            landmarkName = "-Change_ButtonArray_Name"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -319,8 +319,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1395"
             endingLineNumber = "1395"
-            landmarkName = "-CHK_MP3_Sound"
-            landmarkType = "5">
+            landmarkName = "@implementation mainview"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -479,7 +479,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1160"
             endingLineNumber = "1160"
-            landmarkName = "-cancelButtonClicked:"
+            landmarkName = "-Purchase_BtnClick:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -527,7 +527,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1270"
             endingLineNumber = "1270"
-            landmarkName = "-tableView:didSelectRowAtIndexPath:"
+            landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -543,7 +543,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1108"
             endingLineNumber = "1108"
-            landmarkName = "-Purchase_BtnClick:"
+            landmarkName = "-Clock_Click:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -575,7 +575,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1392"
             endingLineNumber = "1392"
-            landmarkName = "-CHK_MP3_Sound"
+            landmarkName = "-Change_ButtonArray_Name"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -591,7 +591,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "650"
             endingLineNumber = "650"
-            landmarkName = "-MainLable"
+            landmarkName = "-setTopElement:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -623,7 +623,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1510"
             endingLineNumber = "1510"
-            landmarkName = "-PlayMP3"
+            landmarkName = "-helpClicked:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -671,7 +671,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1095"
             endingLineNumber = "1095"
-            landmarkName = "-Clock_Click:"
+            landmarkName = "-didReceiveMemoryWarning"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -703,7 +703,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1233"
             endingLineNumber = "1233"
-            landmarkName = "-Stop_Time_Sound"
+            landmarkName = "-toggleTimer"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -735,7 +735,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "783"
             endingLineNumber = "783"
-            landmarkName = "-updateTimeLeft"
+            landmarkName = "-audioPlayerDidFinishPlaying:successfully:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -751,7 +751,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "934"
             endingLineNumber = "934"
-            landmarkName = "-touchesBegan:withEvent:"
+            landmarkName = "-updateTimeLeft"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -767,7 +767,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1511"
             endingLineNumber = "1511"
-            landmarkName = "-PlayMP3"
+            landmarkName = "-helpClicked:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -783,7 +783,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1394"
             endingLineNumber = "1394"
-            landmarkName = "-CHK_MP3_Sound"
+            landmarkName = "-Change_ButtonArray_Name"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1039,8 +1039,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1097"
             endingLineNumber = "1097"
-            landmarkName = "-Clock_Click:"
-            landmarkType = "5">
+            landmarkName = "@implementation mainview"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1055,7 +1055,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1455"
             endingLineNumber = "1455"
-            landmarkName = "-Timer_Click:"
+            landmarkName = "-EnableCorcle"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1071,7 +1071,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1235"
             endingLineNumber = "1235"
-            landmarkName = "-Stop_Time_Sound"
+            landmarkName = "-toggleTimer"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1679,7 +1679,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1013"
             endingLineNumber = "1013"
-            landmarkName = "-levelBagua"
+            landmarkName = "-getBottomBaguaElement"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
