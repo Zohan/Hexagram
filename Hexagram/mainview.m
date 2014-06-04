@@ -645,6 +645,12 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
     
 }
 
+-(void)setTopElement:(int) element {
+    MainPattern2= [NSString stringWithFormat:@"%dBtn.png",[self getBottomBaguaElement]];
+    UIImage *ptnimg11=[UIImage imageNamed:MainPattern2];
+    ColorPatern2.image=ptnimg11;
+}
+
 -(void)MainLable
 {
     soundgapint=0;
