@@ -630,29 +630,18 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
     
     Color8=[[NSMutableArray alloc]initWithObjects:@"Color8-1.png",@"Color8-2.png",@"Color8-3.png",@"Color8-4.png",@"Color8-5.png",@"Color8-6.png",@"Color8-7.png",@"Color8-8.png", nil];
     
-    NSString *str11=[Color1 objectAtIndex:0];
-    
-    MainPattern1=str11;
-    MainPattern1=[[MainPattern1 componentsSeparatedByString:@"-"] objectAtIndex:1];
-    MainPattern1 = [MainPattern1 stringByReplacingCharactersInRange:NSMakeRange(1, 1) withString:@"Btn."];
-    UIImage *ptnimg11=[UIImage imageNamed:MainPattern1];
-    ColorPatern1.image=ptnimg11;
-    
-    MainPattern2=[Color5 objectAtIndex:0];
-    MainPattern2=[[MainPattern2 componentsSeparatedByString:@"-"] objectAtIndex:1];
-    MainPattern2 = [MainPattern2 stringByReplacingCharactersInRange:NSMakeRange(1, 1) withString:@"Btn."];
-    UIImage *ptrnimg2=[UIImage imageNamed:MainPattern2];
-    ColorPatern2.image=ptrnimg2;
+    int randomElement = rand()%8+1;
+    MainPattern1= [NSString stringWithFormat:@"%dBtn.png",randomElement];
+    UIImage *ptrnimg2=[UIImage imageNamed:MainPattern1];
+    ColorPatern1.image=ptrnimg2;
+   
+    MainPattern2= [NSString stringWithFormat:@"%dBtn.png",[self getBottomBaguaElement]];
+    UIImage *ptnimg11=[UIImage imageNamed:MainPattern2];
+    ColorPatern2.image=ptnimg11;
     
     [self levelBagua];
     
     [self MainLable];
-    
-    
-   //[btn_start setUserInteractionEnabled:YES];
-    //[HexaButton setUserInteractionEnabled:YES];
-    //[Swipeimgeview setUserInteractionEnabled:YES];
-
     
 }
 
@@ -991,7 +980,7 @@ CGFloat angleBetweenLinesInDegrees(CGPoint beginLineA, CGPoint endLineA, CGPoint
     return (atanA - atanB) * 180 / M_PI;
 }
 
--(int)getBottomElement {
+-(int)getBottomBaguaElement {
     float baguaAngle = atan2(bagua.transform.b, bagua.transform.a);
     NSLog(@"Transform: %f", baguaAngle);
     
@@ -1018,7 +1007,7 @@ CGFloat angleBetweenLinesInDegrees(CGPoint beginLineA, CGPoint endLineA, CGPoint
 }
 
 -(void) levelBagua{
-    int element = [self getBottomElement];
+    int element = [self getBottomBaguaElement];
     switch (element) {
         case 1:
             bagua.transform = CGAffineTransformMakeRotation(-6*M_PI/8);
@@ -1086,7 +1075,7 @@ CGFloat angleBetweenLinesInDegrees(CGPoint beginLineA, CGPoint endLineA, CGPoint
     // calculate rotation angle between two points
     CGFloat angle = angleBetweenLinesInDegrees(bagua.center, prevPoint, bagua.center, curPoint);
     
-    [self getBottomElement];
+    [self getBottomBaguaElement];
 
     // 10 is enough angular change to say the user wants to spin the wheel
     if(abs(angle) > 10) {
