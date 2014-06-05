@@ -65,23 +65,16 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
     }
     else
     {
-        CountTimer=0;
-        int tt=[MaintimeSTR intValue]*60;
+        CountTimer=YES;
+        //Weird timing bug
+        int tt=[MaintimeSTR intValue]*60+1;
         
-        if ([MaintimeSTR isEqualToString:@"1"])
-        {
-         [Timer_Btn setTitle:@"00:59" forState:UIControlStateNormal];
-        }
-        else
-        {
-         [Timer_Btn setTitle:MaintimeSTR forState:UIControlStateNormal];
-        }
+        [Timer_Btn setTitle:MaintimeSTR forState:UIControlStateNormal];
         
         databaseDate = [NSDate dateWithTimeIntervalSinceNow:tt];
-        [self playPauseUnstick];
+        //[self playPauseUnstick];
         [self updateTimeLeft];
-        CountTimer = 20;
-        //[MPNowPlayingInfoCenter defaultCenter];
+        CountTimer = NO;
     }
     
 }
@@ -169,12 +162,7 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
     [self addHelpButton];
     [self addHexaBtn];
     [self addMP3IndicatorButton];
-    MaintimeSTR=@"10:00";
-    
-    tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapDetected:)];
-    tapGesture.numberOfTapsRequired = 1;
-    tapGesture.numberOfTouchesRequired = 1;
-    [Swipeimgeview addGestureRecognizer:tapGesture];
+    MaintimeSTR=@"10:01";
     
     if (show==20)
     {
@@ -185,6 +173,7 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
     }
     
     btn_start.selected=YES;
+    [self resetTime];
 }
 
 -(void) addPlayPauseButton {
@@ -236,11 +225,6 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
     [self.view addSubview:toggleMP3Button];
 }
 
--(void) tapDetected : (id) sender
-{
-    //[self Swipewheel];
-}
-
 -(void)Swipewheel
 {
     soundgapint=20;
@@ -251,14 +235,14 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
     NSLog(@"alray perchase list : %@",buttonarr);
     firstcall=20;
     
-    CountTimer=20;
+    CountTimer=NO;
     playhexasound=0;
     
     [btn_start setUserInteractionEnabled:NO];
     [HexaButton setUserInteractionEnabled:NO];
     [Swipeimgeview setUserInteractionEnabled:NO];
     
-   // CountTimer=0;
+   // CountTimer=YES;
     
     [theAudio stop];
 
@@ -276,14 +260,6 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
     [bagua setHidden:NO];
     
     [ColorImg1 setHidden:YES];
-    [ColorImg2 setHidden:YES];
-    [ColorImg3 setHidden:YES];
-    [ColorImg4 setHidden:YES];
-    [ColorImg5 setHidden:YES];
-    [ColorImg6 setHidden:YES];
-    [ColorImg7 setHidden:YES];
-    [ColorImg8 setHidden:YES];
-    
     
     srand((unsigned)time(0));
     random = (rand() % 20) / 10.0;
@@ -373,13 +349,29 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
     }
 }
 
+-(void) setTimeFromDisplay {
+    
+    // The +2 here is to compensate for a weird timer bug.
+    databaseDate = [NSDate dateWithTimeIntervalSinceNow:timestop+2];
+    
+}
+
 -(void) playDrumTrack {
     UIImage *drumImage=[UIImage imageNamed:@"Drum.png"];
     [playDrumButton setTitle:@"" forState:UIControlStateNormal];
     [playDrumButton setImage:drumImage forState:UIControlStateNormal];
     [theAudio play];
-    CountTimer=0;
+    CountTimer=YES;
     playhexasound = 20;
+    [SoundTimer invalidate];
+    SoundTimer=nil;
+    SoundTimer=[[NSTimer alloc]init];
+    SoundTimer = [NSTimer scheduledTimerWithTimeInterval:1.0
+                                                  target:self
+                                                selector:@selector(updateTimeLeft)
+                                                userInfo:nil
+                                                 repeats:YES];
+    [self setTimeFromDisplay];
 }
 
 -(void) pauseDrumTrack {
@@ -387,9 +379,18 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
     [playDrumButton setTitle:@"" forState:UIControlStateNormal];
     [playDrumButton setImage:drumImage forState:UIControlStateNormal];
     [theAudio pause];
-    [self pauseMP3Track];
-    CountTimer=20;
+    if([MP3_Player isPlaying]) {
+        [self pauseMP3Track];
+    }
+    CountTimer=NO;
     playhexasound=0;
+    [SoundTimer invalidate];
+    SoundTimer=nil;
+    NSTimeInterval remainingSec = [databaseDate timeIntervalSinceNow];
+    NSInteger remainder = ((NSInteger)remainingSec)% 3600;
+    
+    timestop=remainder;
+
 }
 
 -(void) toggleMP3Track {
@@ -542,11 +543,28 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
     MainPattern2= [NSString stringWithFormat:@"%dBtn.png",[self getBottomBaguaElement]];
     UIImage *ptnimg11=[UIImage imageNamed:MainPattern2];
     ColorPatern2.image=ptnimg11;
-    
+
     [self levelBagua];
     [self setTopElement:randomElement];
     
+    
     [self MainLable];
+    [self resetTime];
+}
+
+-(void)resetTime {
+    // Weird timer bug
+    int tt=[MaintimeSTR intValue]*60;
+    databaseDate = [NSDate dateWithTimeIntervalSinceNow:tt];
+    NSTimeInterval remainingSec = tt;
+    timestop = tt;
+
+    NSInteger remainder = ((NSInteger)remainingSec)% 3600;
+    NSInteger minutess = remainder / 60;
+    NSInteger secondss = remainder % 60;
+    
+    [Timer_Btn setTitle:[NSString stringWithFormat:@"%02d:%02d",minutess,secondss] forState:UIControlStateNormal];
+    
     
 }
 
@@ -561,7 +579,7 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
 -(void)MainLable
 {
     soundgapint=0;
-     mp3isplay=10;
+    mp3isplay=10;
     NSMutableArray *multiArray =[[NSMutableArray alloc]init];
     for (int a=0; a<64; a++)
     {
@@ -598,24 +616,11 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
    
     [HexaButton setTitle:[Mainarr objectAtIndex:set] forState:UIControlStateNormal];
     
-    if (firsttimetimer!=20)
-    {
-        [SoundTimer invalidate];
-        SoundTimer=nil;
-        SoundTimer=[[NSTimer alloc]init];
-        SoundTimer = [NSTimer scheduledTimerWithTimeInterval:1.0
-                                                      target:self
-                                                    selector:@selector(updateTimeLeft)
-                                                    userInfo:nil
-                                                     repeats:YES];
-
-    }
-    
     NSString *str1=[NSString stringWithFormat:@"%@%@",MainPattern1,@"_Plate"];
-     NSString *str2=[NSString stringWithFormat:@"%@%@",MainPattern2,@"_Plate"];
-    
+    NSString *str2=[NSString stringWithFormat:@"%@%@",MainPattern2,@"_Plate"];
+
     MainColorPlt1.image=[UIImage imageNamed:str1];
-     MainColorPlt2.image=[UIImage imageNamed:str2];
+    MainColorPlt2.image=[UIImage imageNamed:str2];
     
   
     damru=[MainPattern2 intValue];
@@ -624,7 +629,7 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
     
     [self playDrumSound];
     NSLog(@"damru play==%d",damru);
-    //CountTimer=20;
+    //CountTimer=NO;
     //playhexasound=20;
     
     if (setfirsttimetimer==20)
@@ -655,8 +660,6 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
     [MP3_Player pause];
     [theAudio pause];
     CountTimer = 20;
-
-    //[theAudio play];
     
 }
 
@@ -679,7 +682,6 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
             [MPNowPlayingInfoCenter defaultCenter];
         }
     }
-    //[theAudio setNumberOfLoops: -1];
     [theAudio setNumberOfLoops:-1];
     [theAudio play];
     if (player==MP3_Player)
@@ -692,111 +694,8 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
 
 - (void)updateTimeLeft
 {
-    
-   [timer invalidate];
-   timer =nil;
-   timer=[[NSTimer alloc]init];
-    
-    NSTimeInterval remainingSec = [databaseDate timeIntervalSinceNow];
-   NSLog(@"MainTimeStr===%@",MaintimeSTR);
-    if (MaintimeSTR.length==0)
-    {
-        if (playhexasound==20)
-        {
-            firsttimetimer=20;
-            
-            if([MP3_Player isPlaying])
-            {
-                remainingSec = MP3_Player.duration+300 - MP3_Player.currentTime;
-                
-                NSInteger remainder = ((NSInteger)remainingSec)% 3600;
-                NSInteger minutess = remainder / 60;
-                NSInteger secondss = remainder % 60;
-                
-                
-                [Timer_Btn setTitle:[NSString stringWithFormat:@"%02d:%02d",minutess,secondss] forState:UIControlStateNormal];
-                
-                if ([Timer_Btn.titleLabel.text isEqualToString:@"00:00"])
-                {
-                    [MP3_Player stop];
-                    [theAudio stop];
-                    int i= 10*60;
-                    databaseDate = [NSDate dateWithTimeIntervalSinceNow:i];
-                    CountTimer=20;
-                    playhexasound=0;
-                    
-                }
-                NSLog(@"hello===%@",Timer_Btn.titleLabel.text);
-                
-            }
-            
-        
-            NSInteger remainder = ((NSInteger)remainingSec)% 3600;
-            NSInteger minutess = remainder / 60;
-            NSInteger secondss = remainder % 60;
-            
-            
-            [Timer_Btn setTitle:[NSString stringWithFormat:@"%02d:%02d",minutess,secondss] forState:UIControlStateNormal];
-            NSLog(@"hello===%@",Timer_Btn.titleLabel.text);
-            NSLog(@"Remaing second===%f",remainingSec);
-            CountTimer=20;
-            
-            timestop=remainder;
-            
-           
-            if ([Timer_Btn.titleLabel.text isEqualToString:@"00:00"])
-            {
-                [MP3_Player stop];
-                [theAudio stop];
-                int i= 10*60;
-                databaseDate = [NSDate dateWithTimeIntervalSinceNow:i];
-                CountTimer=20;
-                playhexasound=0;
-
-            }
-            
-
-        }
-        
-        if (playhexasound!=20)
-        {
-            CountTimer=20;
-        }
-    }
-    else
-    {
-        if (!SoundTimer || remainingSec <= 0)
-        {
-            int tt=[MaintimeSTR intValue]*60;
-            
-            databaseDate = [NSDate dateWithTimeIntervalSinceNow:tt];
-            remainingSec = [databaseDate timeIntervalSinceNow];
-            SoundTimer=[[NSTimer alloc]init];
-            SoundTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self
-                                                   selector:@selector(updateTimeLeft)
-                                                   userInfo:nil
-                                                    repeats:YES];
-            
-            NSInteger remainder = ((NSInteger)remainingSec)% 3600;
-            NSInteger minutess = remainder / 60;
-            NSInteger secondss = remainder % 60;
-            
-            
-            [Timer_Btn setTitle:[NSString stringWithFormat:@"%02d:%02d",minutess,secondss] forState:UIControlStateNormal];
-            
-            if ([Timer_Btn.titleLabel.text isEqualToString:@"00:00" ])
-            {
-                [theAudio stop];
-                [theAudio stop];
-            }
-            
-            NSLog(@"hello===%@",Timer_Btn.titleLabel.text);
-        }
-    }
-    
-    if (CountTimer!=20)
-    {
-       
+    if(CountTimer == YES || CountTimer == 0) {
+        NSTimeInterval remainingSec = [databaseDate timeIntervalSinceNow];
         NSInteger remainder = ((NSInteger)remainingSec)% 3600;
         NSInteger minutess = remainder / 60;
         NSInteger secondss = remainder % 60;
@@ -820,24 +719,14 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
             NSInteger minutess = remainder / 60;
             NSInteger secondss = remainder % 60;
             
-            
             [Timer_Btn setTitle:[NSString stringWithFormat:@"%02d:%02d",minutess,secondss] forState:UIControlStateNormal];
             firsttimetimer = 0;
             setfirsttimetimer = 20;
             [SoundTimer invalidate];
-            
         }
-        
-    }
-    else
-    {
-        remainingSec=remainingSec;
-    }
-   
-    if (remainder==0)
-    {
-        CountTimer=20;
-        playhexasound=0;
+    } else {
+        //NSTimeInterval remainingSec = [databaseDate timeIntervalSinceNow];
+        //databaseDate = [NSDate dateWithTimeIntervalSinceNow:remainin]
     }
 }
 
@@ -990,7 +879,7 @@ CGFloat angleBetweenLinesInDegrees(CGPoint beginLineA, CGPoint endLineA, CGPoint
     
     [self getBottomBaguaElement];
 
-    // 10 is enough angular change to say the user wants to spin the wheel
+    // 1 to determine if the user imparted any decent amount of velocity after leaving - indicating a spin intent
     if(abs(angle) > 1) {
         [self Swipewheel];
     }
@@ -1006,7 +895,7 @@ CGFloat angleBetweenLinesInDegrees(CGPoint beginLineA, CGPoint endLineA, CGPoint
 {
    // [self Stop_Time_Sound];
     [theAudio pause];
-    CountTimer=20;
+    CountTimer=NO;
     playhexasound=0;
     
     show=10;
@@ -1021,7 +910,7 @@ CGFloat angleBetweenLinesInDegrees(CGPoint beginLineA, CGPoint endLineA, CGPoint
     [theAudio stop];
     [theAudio pause];
     [MP3_Player stop];
-    CountTimer=20;
+    CountTimer=NO;
     playhexasound=0;
     if ([UIDevice currentResolution] == UIDevice_iPhoneTallerHiRes)
     {
@@ -1082,7 +971,7 @@ CGFloat angleBetweenLinesInDegrees(CGPoint beginLineA, CGPoint endLineA, CGPoint
     
     [theAudio stop];
     [MP3_Player stop];
-    CountTimer=20;
+    CountTimer=NO;
     playhexasound=0;
     if ([UIDevice currentResolution] == UIDevice_iPhoneTallerHiRes)
     {
@@ -1236,7 +1125,7 @@ CGFloat angleBetweenLinesInDegrees(CGPoint beginLineA, CGPoint endLineA, CGPoint
     damru=[MainPattern2 intValue];
     damru2=[MainPattern1 intValue];
     stopplay=0;
-    CountTimer=0;
+    CountTimer=YES;
     playhexasound=20;
     
 
