@@ -865,6 +865,7 @@ CGFloat angleBetweenLinesInDegrees(CGPoint beginLineA, CGPoint endLineA, CGPoint
     }
     CGFloat height = [UIScreen mainScreen].bounds.size.height;
     if(touchPoint.y < height/2) {
+        [ColorImg1 setHidden:YES];
         bagua.layer.transform = CATransform3DRotate(bagua.layer.transform, DEGREES_TO_RADIANS(angle), .0, .0, 1.0);
     }
 
