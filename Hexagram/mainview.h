@@ -50,7 +50,7 @@
     int setfirsttimetimer;
     int index,mp3isplay;
     
-    NSMutableArray *Mainarr,*MultiArrayFirst,*MultiArraySecond;
+    NSMutableArray *Mainarr,*purchaseableTrackArray, *MultiArrayFirst,*MultiArraySecond;
 }
 @property (strong, nonatomic) IBOutlet UIImageView *image1;
 - (IBAction)Clock_Click:(id)sender;

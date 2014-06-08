@@ -112,13 +112,58 @@
   // [self dismissPopupViewControllerWithanimationType:MJPopupViewAnimationFade];
     
     NSString *soundstr=[NSString stringWithFormat:@"%d",soundNo];
-   
-    if ([soundstr isEqualToString:@"1"])
-    {
-        soundstr=@"peace";
+    
+    NSMutableArray * nameArray=[[NSMutableArray alloc]initWithObjects:@"none",@"peace",@"deep water",@"gentle persistance",@"joy",@"passion",@"power",@"prosperity",@"taking action",@"keeping still",@"allowing", nil];
+    
+    int damru1, damru2;
+    
+    
+    // To load the correct drum track
+    switch (soundNo) {
+        case 1:
+            damru1 = 5;
+            damru2 = 9;
+            break;
+        case 2:
+            damru1 = 5;
+            damru2 = 9;
+            break;
+        case 3:
+            damru1 = 5;
+            damru2 = 9;
+            break;
+        case 4:
+            damru1 = 5;
+            damru2 = 9;
+            break;
+        case 5:
+            damru1 = 5;
+            damru2 = 9;
+            break;
+        case 6:
+            damru1 = 5;
+            damru2 = 9;
+            break;
+        case 7:
+            damru1 = 5;
+            damru2 = 9;
+            break;
+        case 8:
+            damru1 = 5;
+            damru2 = 9;
+            break;
+        case 9:
+            damru1 = 5;
+            damru2 = 5;
+            break;
+        default:
+            damru1 = 5;
+            damru2 = 9;
+            break;
+            
     }
     
-    NSString *str=[NSString stringWithFormat:@"%@",soundstr];
+    NSString *str=[NSString stringWithFormat:@"%@",nameArray[soundNo]];
     NSString *path = [[NSBundle mainBundle] pathForResource:str ofType:@"mp3"];
     [PlayMP3 initWithContentsOfURL:[NSURL fileURLWithPath:path] error:NULL];
     PlayMP3.delegate = self;
@@ -127,7 +172,7 @@
     [[AVAudioSession sharedInstance] setActive: YES error: nil];
     [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
     //[drumPlayer play];
-    [mainView playDrumForMp3:5 andNewDamru2:9];
+    [mainView playDrumForMp3:damru1 andNewDamru2:damru2];
     //[PlayMP3 prepareToPlay];
     //[PlayMP3 play];
     [HUD hide:YES];

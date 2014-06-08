@@ -86,6 +86,7 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
     CONTINUTIMES=0;
      Mainarr=[[NSMutableArray alloc]initWithObjects:@"Taking Action",@"Allowing",@"Challenges",@"Innocence",@"Inevitability",@"Confrontation",@"Rallying",@"Union",@"Preparing",@"Cautious Action",@"Peace",@"Chaos",@"Fellowship",@"Prosperity",@"Humility",@"Energy Rising",@"Following",@"Healing",@"Thriving",@"Observation",@"Clearing Paths",@"Beauty",@"Release",@"Restoration",@"Presence",@"Focused Intention",@"Nourishment",@"Pressure",@"Deep Water",@"Passion",@"Attraction",@"Long Lasting", @"Restraint",@"Increasing Energy",@"Success",@"Dark Times",@"Family",@"Opposition",@"Obstacles",@"Freedom",@"Self-Discipline",@"Good Fortune",@"Determination",@"Over Indulgence",@"Unified Force",@"Growth",@"Emptiness",@"Feeding the Soul", @"Revolution",@"Alchemy",@"Power",@"Keeping Still",@"Steady Progress",@"Impulsiveness",@"Abundance",@"Restlessness",@"Gentle Persistance",@"Joy",@"Dissolving",@"Boundaries",@"Wisdom",@"Details",@"After Victory",@"Before Victory",nil];
     
+    purchaseableTrackArray =[[NSMutableArray alloc]initWithObjects:@"none",@"peace",@"deep water",@"gentle persistance",@"joy",@"passion",@"power",@"prosperity",@"taking action",@"keeping still",@"allowing", nil];
     
    MultiArrayFirst =[[NSMutableArray alloc]initWithObjects:
                                       @"9",@"5",@"7",@"8",@"7",@"9",@"5",@"7",
@@ -311,7 +312,6 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
     damru = newDamru;
     damru2 = newDamru2;
     [self playDrumSound];
-    //[theAudio play];
     NSString *str=[NSString stringWithFormat:@"%d.png",damru];
     MainPattern1 = [NSString stringWithString:str];
     str=[NSString stringWithFormat:@"%d.png",damru2];
@@ -868,6 +868,11 @@ CGFloat angleBetweenLinesInDegrees(CGPoint beginLineA, CGPoint endLineA, CGPoint
         [ColorImg1 setHidden:YES];
         bagua.layer.transform = CATransform3DRotate(bagua.layer.transform, DEGREES_TO_RADIANS(angle), .0, .0, 1.0);
     }
+    
+    // 1 to determine if the user imparted any decent amount of velocity after leaving - indicating a spin intent
+    if(abs(angle) > 20) {
+        [self Swipewheel];
+    }
 
 }
 
@@ -879,11 +884,6 @@ CGFloat angleBetweenLinesInDegrees(CGPoint beginLineA, CGPoint endLineA, CGPoint
     CGFloat angle = angleBetweenLinesInDegrees(bagua.center, prevPoint, bagua.center, curPoint);
     
     [self getBottomBaguaElement];
-
-    // 1 to determine if the user imparted any decent amount of velocity after leaving - indicating a spin intent
-    if(abs(angle) > 1) {
-        [self Swipewheel];
-    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -1214,7 +1214,7 @@ CGFloat angleBetweenLinesInDegrees(CGPoint beginLineA, CGPoint endLineA, CGPoint
                 if ([Hexaname isEqualToString:HexaString])
                 {
                     [theAudio stop];
-                    MP3Sound=[buttonarr objectAtIndex:index];
+                    MP3Sound=[Hexaname lowercaseString];
                     [self PlayMP3];
                     soundplayint=20;
                     [toggleMP3Button setHidden:NO];

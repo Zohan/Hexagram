@@ -1048,6 +1048,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Creative Rohit";
 				TargetAttributes = {
+					8D9F430D18E46A5400B0B28E = {
+						DevelopmentTeam = F4B59KFSVJ;
+					};
 					8D9F432818E46A5500B0B28E = {
 						TestTargetID = 8D9F430D18E46A5400B0B28E;
 					};
@@ -1445,13 +1448,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
 				CODE_SIGN_IDENTITY = "iPhone Developer: Elizabeth Herrera (G5A386HEM7)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Elizabeth Herrera (G5A386HEM7)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Hexagram/Hexagram-Prefix.pch";
 				INFOPLIST_FILE = "Hexagram/Hexagram-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "862047AF-B9C1-4141-B410-999E13668185";
+				PROVISIONING_PROFILE = "E7D27CC0-B260-4A79-A5DC-5C5616715042";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1462,13 +1465,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
 				CODE_SIGN_IDENTITY = "iPhone Developer: Elizabeth Herrera (G5A386HEM7)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Elizabeth Herrera (G5A386HEM7)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Hexagram/Hexagram-Prefix.pch";
 				INFOPLIST_FILE = "Hexagram/Hexagram-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "862047AF-B9C1-4141-B410-999E13668185";
+				PROVISIONING_PROFILE = "E7D27CC0-B260-4A79-A5DC-5C5616715042";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
