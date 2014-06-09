@@ -159,6 +159,10 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
         [self.view addSubview:HexaView];
     }
     
+    if([buttonarr indexOfObject:@"1"] > 12) {
+        [buttonarr addObject:@"1"];
+    }
+    
     [self addPlayPauseButton];
     [self addHelpButton];
     [self addHexaBtn];
@@ -402,12 +406,15 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
 }
 
 -(void) playMP3Track {
-    if (![MP3_Player isPlaying]) {
+    int value = [self convertHexagramNameToPurchaseTrackID:MP3Sound];
+    if (![MP3_Player isPlaying] && [self hasTrackBeenPurchased:value]) {
         UIImage *imag=[UIImage imageNamed:@"Meditation.png"];
         [toggleMP3Button setTitle:@"" forState:UIControlStateNormal];
         [toggleMP3Button setBackgroundImage:imag forState:UIControlStateNormal];
         [MP3_Player play];
         [self playDrumTrack];
+    } else {
+        // Forward to purchase
     }
 }
 
@@ -521,6 +528,7 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
    
     [theAudio stop];
     [MP3_Player stop];
+    [bagua setUserInteractionEnabled:YES];
     
    // [image1 setHidden:YES];
     [HexaButton setHidden:NO];
@@ -787,7 +795,6 @@ CGFloat angleBetweenLinesInDegrees(CGPoint beginLineA, CGPoint endLineA, CGPoint
     NSLog(@"Transform: %f", baguaAngle);
     
     int element = 0;
-    
     if(baguaAngle >= 7*M_PI/8 || baguaAngle <= -7*M_PI/8) {
         element = 2;
     } else if(baguaAngle >= -7*M_PI/8 && baguaAngle <= -5*M_PI/8) {
@@ -872,6 +879,7 @@ CGFloat angleBetweenLinesInDegrees(CGPoint beginLineA, CGPoint endLineA, CGPoint
     // 1 to determine if the user imparted any decent amount of velocity after leaving - indicating a spin intent
     if(abs(angle) > 20) {
         [self Swipewheel];
+        [bagua setUserInteractionEnabled:NO];
     }
 
 }
@@ -970,8 +978,8 @@ CGFloat angleBetweenLinesInDegrees(CGPoint beginLineA, CGPoint endLineA, CGPoint
     
     NSLog(@"alray perchase list : %@",buttonarr);
     
-    [theAudio stop];
-    [MP3_Player stop];
+    [self pauseDrumTrack];
+    [self pauseMP3Track];
     CountTimer=NO;
     playhexasound=0;
     if ([UIDevice currentResolution] == UIDevice_iPhoneTallerHiRes)
@@ -1024,6 +1032,7 @@ CGFloat angleBetweenLinesInDegrees(CGPoint beginLineA, CGPoint endLineA, CGPoint
         }
  
     }
+    [self.view bringSubviewToFront:HexaView];
 }
 
 -(void) toggleTimer {
@@ -1121,26 +1130,16 @@ CGFloat angleBetweenLinesInDegrees(CGPoint beginLineA, CGPoint endLineA, CGPoint
     MainColorPlt2.image=[UIImage imageNamed:plate2];
     
   
-    [self updateTimeLeft];
+    //[self updateTimeLeft];
     
     damru=[MainPattern2 intValue];
     damru2=[MainPattern1 intValue];
     stopplay=0;
     CountTimer=YES;
-    playhexasound=20;
+    //playhexasound=20;
     
 
-    [self playDrumSound];
-    if (timestop==0)
-    {
-        int time=10*60;
-        timestop=time;
-       databaseDate = [NSDate dateWithTimeIntervalSinceNow:timestop];
-    }
-    else
-    {
-        databaseDate = [NSDate dateWithTimeIntervalSinceNow:timestop];
-    }
+    //[self playDrumSound];
     
     Hexaname=[Mainarr objectAtIndex:indexPath.row];
     [self CHK_MP3_Sound];
@@ -1149,97 +1148,43 @@ CGFloat angleBetweenLinesInDegrees(CGPoint beginLineA, CGPoint endLineA, CGPoint
     NSLog(@"tabledamru==%d",damru);
 }
 
--(void)Change_ButtonArray_Name
-{
-    
-    if ([[buttonarr objectAtIndex:index] isEqualToString:@"9"])
-    {
-        HexaString=@"Allowing";
-    }
-    if ([[buttonarr objectAtIndex:index] isEqualToString:@"2"])
-    {
-        HexaString=@"Deep Water";
-    }
-    if ([[buttonarr objectAtIndex:index] isEqualToString:@"3"])
-    {
-        HexaString=@"Gentle Persistance";
-    }
-    if ([[buttonarr objectAtIndex:index] isEqualToString:@"4"])
-    {
-        HexaString=@"Joy";
-    }
-    if ([[buttonarr objectAtIndex:index] isEqualToString:@"5"])
-    {
-        HexaString=@"Passion";
-    }
-    if ([[buttonarr objectAtIndex:index] isEqualToString:@"6"])
-    {
-        HexaString=@"Power";
-    }
-    if ([[buttonarr objectAtIndex:index] isEqualToString:@"7"])
-    {
-        HexaString=@"Prosperity";
-    }
-    if ([[buttonarr objectAtIndex:index] isEqualToString:@"8"])
-    {
-        HexaString=@"Taking Action";
-    }
-    if ([[buttonarr objectAtIndex:index] isEqualToString:@"10"])
-    {
-        HexaString=@"Keeping Still";
-    }
+-(int)convertHexagramNameToPurchaseTrackID:(NSString*) trackName{
+
+    int trackList = [purchaseableTrackArray indexOfObject:trackName];
+    return trackList;
+}
+
+-(bool)hasTrackBeenPurchased:(int)trackNumber{
+    NSString * trackStringFromInt = [NSString stringWithFormat:@"%d", trackNumber];
+    int indexOfTrack = 100;
+    indexOfTrack = [buttonarr indexOfObject:trackStringFromInt];
+    if(indexOfTrack < 12 || [Hexaname isEqualToString:@"Peace"]) {
+        return YES;
+    } else return NO;
 }
 
 -(void)CHK_MP3_Sound
 {
     int soundplayint=10;
-    if ([Hexaname isEqualToString:@"Peace"])
-    {
+    MP3Sound=[Hexaname lowercaseString];
+    int value = [self convertHexagramNameToPurchaseTrackID:MP3Sound];
+    [self hasTrackBeenPurchased:value];
+    if ([purchaseableTrackArray containsObject:MP3Sound]) {
         [theAudio stop];
-        MP3Sound=@"peace";
+        MP3Sound=[Hexaname lowercaseString];
         [self PlayMP3];
-        [self playDrumSound];
+        soundplayint=20;
+        [MP3_Player setVolume: 1.0f];
         [toggleMP3Button setHidden:NO];
     }
     else
     {
-        
-        if (buttonarr.count!=0)
-        {
-            
-            for (index=0; index<buttonarr.count; index++)
-            {
-                [self Change_ButtonArray_Name];
-                
-                if ([Hexaname isEqualToString:HexaString])
-                {
-                    [theAudio stop];
-                    MP3Sound=[Hexaname lowercaseString];
-                    [self PlayMP3];
-                    soundplayint=20;
-                    [toggleMP3Button setHidden:NO];
-                }
-            }
-            if (soundplayint==10)
-            {
-                [MP3_Player setVolume: 1.0f];
-                [MP3_Player stop];
-                [theAudio play];
-            }
-            
-        }
-        else
-        {
-            [toggleMP3Button setHidden:YES];
-            [MP3_Player setVolume: 0.0f];
-            [MP3_Player stop];
-            [theAudio play];
-        }
-       
-        
+        [toggleMP3Button setHidden:YES];
+        [MP3_Player setVolume: 0.0f];
+        [MP3_Player stop];
+        //[theAudio play];
     }
-    
-  NSTimer *Timer = [NSTimer scheduledTimerWithTimeInterval:1.0
+    NSTimer *Timer = [NSTimer scheduledTimerWithTimeInterval:1.0
                                                   target:self
                                                 selector:@selector(EnableCorcle)
                                                 userInfo:nil

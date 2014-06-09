@@ -125,36 +125,40 @@
             damru2 = 9;
             break;
         case 2:
-            damru1 = 5;
-            damru2 = 9;
+            damru1 = 7;
+            damru2 = 7;
             break;
         case 3:
-            damru1 = 5;
-            damru2 = 9;
+            damru1 = 6;
+            damru2 = 6;
             break;
         case 4:
-            damru1 = 5;
-            damru2 = 9;
+            damru1 = 4;
+            damru2 = 4;
             break;
         case 5:
-            damru1 = 5;
-            damru2 = 9;
+            damru1 = 3;
+            damru2 = 3;
             break;
         case 6:
-            damru1 = 5;
-            damru2 = 9;
+            damru1 = 2;
+            damru2 = 2;
             break;
         case 7:
-            damru1 = 5;
-            damru2 = 9;
+            damru1 = 9;
+            damru2 = 3;
             break;
         case 8:
-            damru1 = 5;
+            damru1 = 9;
             damru2 = 9;
             break;
         case 9:
             damru1 = 5;
             damru2 = 5;
+            break;
+        case 10:
+            damru1 = 8;
+            damru2 = 8;
             break;
         default:
             damru1 = 5;
