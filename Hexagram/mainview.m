@@ -31,7 +31,7 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
 @implementation mainview
 @synthesize image1,Timer_Btn;
 @synthesize MainColorPlt2,MainColorPlt1,HexaButton,Lable_2,Lable_3,ColorPatern1,ColorPatern2;
-@synthesize ColorImg1,ColorImg2,ColorImg3,ColorImg4,ColorImg5,ColorImg6,ColorImg7,ColorImg8,Swipeimage,Over_LBL;
+@synthesize ColorImg1, Swipeimage,Over_LBL;
 @synthesize topImage, bottomImage;
 
 @synthesize HexaTable,HexaView;
@@ -247,16 +247,8 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
     [HexaButton setUserInteractionEnabled:NO];
     [Swipeimgeview setUserInteractionEnabled:NO];
     
-   // CountTimer=YES;
-    
-    [theAudio stop];
-
-    if([MP3_Player isPlaying])
-    {
-        [MP3_Player stop];
-    }
-   
-   // playhexasound=0;
+    [self pauseDrumTrack];
+    [self pauseMP3Track];
     [HexaButton setUserInteractionEnabled:NO];
     
     
@@ -354,10 +346,8 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
 }
 
 -(void) setTimeFromDisplay {
-    
     // The +2 here is to compensate for a weird timer bug.
     databaseDate = [NSDate dateWithTimeIntervalSinceNow:timestop+2];
-    
 }
 
 -(void) playDrumTrack {
@@ -582,7 +572,6 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
     
     [Timer_Btn setTitle:[NSString stringWithFormat:@"%02d:%02d",minutess,secondss] forState:UIControlStateNormal];
     
-    
 }
 
 -(void)setTopElement:(int) element {
@@ -648,29 +637,9 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
     NSLog(@"damru play==%d",damru);
     //CountTimer=NO;
     //playhexasound=20;
+    NSLog(@"TIMES++++%d",timestop);
+    databaseDate = [NSDate dateWithTimeIntervalSinceNow:timestop];
     
-    if (setfirsttimetimer==20)
-    {
-        if (MaintimeSTR.length==0)
-        {
-            MaintimeSTR = [MaintimeSTR initWithString:@"10"];
-            int time=[MaintimeSTR intValue]*60;
-            databaseDate = [NSDate dateWithTimeIntervalSinceNow:time];
-        }
-        else
-        {
-            int tt=[MaintimeSTR intValue]*60;
-            databaseDate = [NSDate dateWithTimeIntervalSinceNow:tt];
-            
-        }
-        setfirsttimetimer=0;
-    }
-    else
-    {
-        NSLog(@"TIMES++++%d",timestop);
-        databaseDate = [NSDate dateWithTimeIntervalSinceNow:timestop];
-        
-    }
     
     Hexaname=[Mainarr objectAtIndex:set];
     [self CHK_MP3_Sound];
@@ -886,7 +855,7 @@ CGFloat angleBetweenLinesInDegrees(CGPoint beginLineA, CGPoint endLineA, CGPoint
     }
     
     // 1 to determine if the user imparted any decent amount of velocity after leaving - indicating a spin intent
-    if(abs(angle) > 20) {
+    if(abs(angle) > 20 || [bagua isUserInteractionEnabled]) {
         [self Swipewheel];
         [bagua setUserInteractionEnabled:NO];
     }
@@ -1042,11 +1011,6 @@ CGFloat angleBetweenLinesInDegrees(CGPoint beginLineA, CGPoint endLineA, CGPoint
  
     }
     [self.view bringSubviewToFront:HexaView];
-}
-
--(void) toggleTimer {
-    
-    
 }
 
 -(void)Stop_Time_Sound

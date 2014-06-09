@@ -83,13 +83,6 @@
 
 //+++++++++++++++++++++++++++++++++++++++
 @property (strong, nonatomic) IBOutlet UIImageView *ColorImg1;
-@property (strong, nonatomic) IBOutlet UIImageView *ColorImg2;
-@property (strong, nonatomic) IBOutlet UIImageView *ColorImg3;
-@property (strong, nonatomic) IBOutlet UIImageView *ColorImg4;
-@property (strong, nonatomic) IBOutlet UIImageView *ColorImg5;
-@property (strong, nonatomic) IBOutlet UIImageView *ColorImg6;
-@property (strong, nonatomic) IBOutlet UIImageView *ColorImg7;
-@property (strong, nonatomic) IBOutlet UIImageView *ColorImg8;
 @property (strong, nonatomic) IBOutlet UIImageView *Swipeimage;
 
 @property (strong, nonatomic) IBOutlet UIImageView *topImage;
