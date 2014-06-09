@@ -176,6 +176,7 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
                     position:@"center"
                        image:[UIImage imageNamed:@"640x1136Fqce"]];
     }
+    [bagua setUserInteractionEnabled:YES];
     
     btn_start.selected=YES;
     [self resetTime];
