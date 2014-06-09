@@ -301,9 +301,9 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
     
     NSString *str=[NSString stringWithFormat:@"%d%d",damru,damru2];
     NSString *path = [[NSBundle mainBundle] pathForResource:str ofType:@"aiff"];
-    
     theAudio=[[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL fileURLWithPath:path] error:NULL];
     theAudio.delegate = self;
+    [theAudio setNumberOfLoops:-1];
     
     [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
     [[AVAudioSession sharedInstance] setActive: YES error: nil];
@@ -414,7 +414,16 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
         [MP3_Player play];
         [self playDrumTrack];
     } else {
-        // Forward to purchase
+        MJSecondDetailViewController *secondDetailViewController = [[MJSecondDetailViewController alloc] initWithNibName:@"MJSecondDetailViewController" bundle:nil];
+        if(MP3_Player == nil)
+        {
+            MP3_Player = [[AVAudioPlayer alloc] init];
+        }
+        [secondDetailViewController assignAudioPlayer:MP3_Player];
+        [secondDetailViewController assignMainView:self];
+        [secondDetailViewController assignDrumPlayer:theAudio];
+        secondDetailViewController.delegate = self;
+        [self presentPopupViewController:secondDetailViewController animationType:MJPopupViewAnimationFade];
     }
 }
 

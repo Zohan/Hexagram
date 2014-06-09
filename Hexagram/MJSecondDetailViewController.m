@@ -112,9 +112,7 @@
   // [self dismissPopupViewControllerWithanimationType:MJPopupViewAnimationFade];
     
     NSString *soundstr=[NSString stringWithFormat:@"%d",soundNo];
-    
     NSMutableArray * nameArray=[[NSMutableArray alloc]initWithObjects:@"none",@"peace",@"deep water",@"gentle persistance",@"joy",@"passion",@"power",@"prosperity",@"taking action",@"keeping still",@"allowing", nil];
-    
     int damru1, damru2;
     
     
@@ -177,8 +175,6 @@
     [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
     //[drumPlayer play];
     [mainView playDrumForMp3:damru1 andNewDamru2:damru2];
-    //[PlayMP3 prepareToPlay];
-    //[PlayMP3 play];
     [HUD hide:YES];
 
 }
@@ -451,6 +447,30 @@
                             otherButtonTitles:@"Ok", nil];
         [tmp show];
     }
+}
+
+-(void)purchaseFromMainScreen:(int)trackToPurchase
+{
+    NSMutableArray * nameArray=[[NSMutableArray alloc]initWithObjects:@"none",@"peace",@"deepwater",@"gentlepersistance",@"joy",@"passion",@"power",@"prosperity",@"takingaction",@"keepingstill",@"allowing", nil];
+    product_id = [nameArray objectAtIndex:trackToPurchase];
+    soundNo = trackToPurchase;
+    [self Perchase];
+    /*if ([SKPaymentQueue canMakePayments])
+    {
+        SKProductsRequest *request = [[SKProductsRequest alloc] initWithProductIdentifiers:[NSSet setWithObject:product_id]];
+        request.delegate = self;
+        [request start];
+    }
+    else
+    {
+        UIAlertView *tmp = [[UIAlertView alloc]
+                            initWithTitle:@"Prohibited"
+                            message:@"Parental Control is enabled, cannot make a purchase!"
+                            delegate:nil
+                            cancelButtonTitle:nil
+                            otherButtonTitles:@"Ok", nil];
+        [tmp show];
+    }*/
 }
 
 -(void)assignAudioPlayer:(AVAudioPlayer *) avPlayer
