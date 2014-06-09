@@ -32,7 +32,6 @@
                                              selector:@selector(reloadTable)
                                                  name:@"reloadData"
                                                object:nil];
-    
 }
 
 - (void)didReceiveMemoryWarning
