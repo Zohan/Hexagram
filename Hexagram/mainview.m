@@ -717,43 +717,6 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
 }
 
 
--(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    if ([UIDevice currentResolution] == UIDevice_iPhoneTallerHiRes)
-    {
-        if (HexaButton.selected==YES)
-        {
-            HexaButton.selected=NO;
-            
-            [UIView beginAnimations:nil context:nil];
-            [UIView setAnimationDuration:1];
-            HexaView.frame=CGRectMake(65, -310, 190, 290);
-            
-            [HexaView setAlpha:50];
-            [UIView commitAnimations];
-            [HexaView setAlpha:50];
-            //[theAudio stop];
-        }
-    }
-    else
-    {
-        if (HexaButton.selected==YES)
-        {
-            HexaButton.selected=NO;
-            
-            [UIView beginAnimations:nil context:nil];
-            [UIView setAnimationDuration:1];
-            HexaView.frame=CGRectMake(65, -310, 190, 250);
-            
-            [HexaView setAlpha:50];
-            [UIView commitAnimations];
-            [HexaView setAlpha:50];
-            //[theAudio stop];
-            //[self.view addSubview:btn_start];
-        }
-    }
-}
-
 CGFloat angleBetweenLinesInDegrees(CGPoint beginLineA, CGPoint endLineA, CGPoint beginLineB, CGPoint endLineB)
 {
     CGFloat a = endLineA.x - beginLineA.x;
@@ -830,6 +793,44 @@ CGFloat angleBetweenLinesInDegrees(CGPoint beginLineA, CGPoint endLineA, CGPoint
     }
 }
 
+
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    if ([UIDevice currentResolution] == UIDevice_iPhoneTallerHiRes)
+    {
+        if (HexaButton.selected==YES)
+        {
+            HexaButton.selected=NO;
+            
+            [UIView beginAnimations:nil context:nil];
+            [UIView setAnimationDuration:1];
+            HexaView.frame=CGRectMake(65, -310, 190, 290);
+            
+            [HexaView setAlpha:50];
+            [UIView commitAnimations];
+            [HexaView setAlpha:50];
+            //[theAudio stop];
+        }
+    }
+    else
+    {
+        if (HexaButton.selected==YES)
+        {
+            HexaButton.selected=NO;
+            
+            [UIView beginAnimations:nil context:nil];
+            [UIView setAnimationDuration:1];
+            HexaView.frame=CGRectMake(65, -310, 190, 250);
+            
+            [HexaView setAlpha:50];
+            [UIView commitAnimations];
+            [HexaView setAlpha:50];
+            //[theAudio stop];
+            //[self.view addSubview:btn_start];
+        }
+    }
+}
+
 -(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
     CGPoint curPoint  = [[touches anyObject] locationInView:bagua];
@@ -855,7 +856,7 @@ CGFloat angleBetweenLinesInDegrees(CGPoint beginLineA, CGPoint endLineA, CGPoint
     }
     
     // 1 to determine if the user imparted any decent amount of velocity after leaving - indicating a spin intent
-    if(abs(angle) > 20 || [bagua isUserInteractionEnabled]) {
+    if(abs(angle) > 20 && [bagua isUserInteractionEnabled]) {
         [self Swipewheel];
         [bagua setUserInteractionEnabled:NO];
     }
