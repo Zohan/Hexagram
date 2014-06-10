@@ -1134,7 +1134,7 @@ CGFloat angleBetweenLinesInDegrees(CGPoint beginLineA, CGPoint endLineA, CGPoint
     NSString * trackStringFromInt = [NSString stringWithFormat:@"%d", trackNumber];
     int indexOfTrack = 100;
     indexOfTrack = [buttonarr indexOfObject:trackStringFromInt];
-    if(indexOfTrack < 12 || [Hexaname isEqualToString:@"Peace"]) {
+    if((indexOfTrack > 0 && indexOfTrack < 12) || [Hexaname isEqualToString:@"Peace"]) {
         return YES;
     } else return NO;
 }
