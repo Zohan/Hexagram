@@ -1111,7 +1111,7 @@ CGFloat angleBetweenLinesInDegrees(CGPoint beginLineA, CGPoint endLineA, CGPoint
     damru2=[MainPattern1 intValue];
     stopplay=0;
     CountTimer=YES;
-    [self playDrumForMp3:damru andNewDamru2:damru2];
+    [self playDrumForMp3:damru2 andNewDamru2:damru];
     //playhexasound=20;
     
 
