@@ -541,7 +541,7 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
     [MainColorPlt1 setHidden:NO];
     [ColorPatern1 setHidden:NO];
     [ColorPatern2 setHidden:NO];
-    [ColorImg1 setHidden:NO];
+    //[ColorImg1 setHidden:NO];
     
     int randomElement = rand()%8+1;
     MainPattern1= [NSString stringWithFormat:@"%dBtn.png",randomElement];
@@ -1111,6 +1111,7 @@ CGFloat angleBetweenLinesInDegrees(CGPoint beginLineA, CGPoint endLineA, CGPoint
     damru2=[MainPattern1 intValue];
     stopplay=0;
     CountTimer=YES;
+    [self playDrumForMp3:damru andNewDamru2:damru2];
     //playhexasound=20;
     
 
