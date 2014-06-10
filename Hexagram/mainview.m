@@ -1114,7 +1114,7 @@ CGFloat angleBetweenLinesInDegrees(CGPoint beginLineA, CGPoint endLineA, CGPoint
     [self playDrumForMp3:damru2 andNewDamru2:damru];
     //playhexasound=20;
     
-
+    [self resetTime];
     //[self playDrumSound];
     
     Hexaname=[Mainarr objectAtIndex:indexPath.row];
