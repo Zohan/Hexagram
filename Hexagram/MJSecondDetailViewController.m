@@ -98,7 +98,6 @@
         }
         
     }
-
 }
 
 - (void)presentPopupViewController:(UIViewController*)popupViewController animationType:(MJPopupViewAnimation)animationType dismissed:(void(^)(void))dismissed
@@ -175,8 +174,8 @@
     [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
     //[drumPlayer play];
     [mainView playDrumForMp3:damru1 andNewDamru2:damru2];
-    [HUD hide:YES];
-
+    [HUD setHidden:TRUE];
+    [self dismissPopupViewControllerWithanimationType:MJPopupViewAnimationFade];
 }
 
 

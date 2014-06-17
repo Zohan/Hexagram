@@ -794,6 +794,46 @@ CGFloat angleBetweenLinesInDegrees(CGPoint beginLineA, CGPoint endLineA, CGPoint
     }
 }
 
+-(void)showHexaview {
+    
+}
+
+-(void)hideHexaview {
+    if ([UIDevice currentResolution] == UIDevice_iPhoneTallerHiRes)
+    {
+        if (HexaButton.selected==YES)
+        {
+            HexaButton.selected=NO;
+            
+            [UIView beginAnimations:nil context:nil];
+            [UIView setAnimationDuration:1];
+            HexaView.frame=CGRectMake(65, -310, 190, 290);
+            
+            [HexaView setAlpha:50];
+            [UIView commitAnimations];
+            [HexaView setAlpha:50];
+            //[theAudio stop];
+        }
+    }
+    else
+    {
+        if (HexaButton.selected==YES)
+        {
+            HexaButton.selected=NO;
+            
+            [UIView beginAnimations:nil context:nil];
+            [UIView setAnimationDuration:1];
+            HexaView.frame=CGRectMake(65, -310, 190, 250);
+            
+            [HexaView setAlpha:50];
+            [UIView commitAnimations];
+            [HexaView setAlpha:50];
+            //[theAudio stop];
+            //[self.view addSubview:btn_start];
+        }
+    }
+}
+
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
@@ -1119,6 +1159,7 @@ CGFloat angleBetweenLinesInDegrees(CGPoint beginLineA, CGPoint endLineA, CGPoint
     
     Hexaname=[Mainarr objectAtIndex:indexPath.row];
     [self CHK_MP3_Sound];
+    [self hideHexaview];
     
     [MPNowPlayingInfoCenter defaultCenter];
     NSLog(@"tabledamru==%d",damru);
