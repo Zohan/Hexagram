@@ -30,6 +30,7 @@ MBProgressHUD *HUD;
     AVAudioPlayer *PlayMP3;
     mainview * mainView;
     
+    
 }
 - (IBAction)AllBtn_Click:(id)sender;
 
@@ -37,6 +38,7 @@ MBProgressHUD *HUD;
 - (void)assignDrumPlayer:(AVAudioPlayer*)avPlayer;
 - (void)assignMainView:(mainview*)mainViewToAssign;
 - (void)purchaseFromMainScreen:(int)trackToPurchase;
+
 
 @property (strong, nonatomic) IBOutlet UIButton *Peace_Btn;
 @property (strong, nonatomic) IBOutlet UIButton *Allowing;

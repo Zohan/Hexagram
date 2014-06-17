@@ -984,6 +984,7 @@ CGFloat angleBetweenLinesInDegrees(CGPoint beginLineA, CGPoint endLineA, CGPoint
     [secondDetailViewController assignDrumPlayer:theAudio];
     secondDetailViewController.delegate = self;
     [self presentPopupViewController:secondDetailViewController animationType:MJPopupViewAnimationFade];
+    //[secondDetailViewController dismissPopupViewControllerWithanimationType:MJPopupViewAnimationFade];
 }
 
 - (void)cancelButtonClicked:(MJSecondDetailViewController *)aSecondDetailViewController

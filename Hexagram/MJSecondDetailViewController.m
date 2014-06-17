@@ -56,6 +56,12 @@
     [self.view addSubview:HUD];
 }
 
+- (void)viewDidUnload
+{
+    [super viewDidUnload];
+    // Release any retained subviews of the main view.
+}
+
 -(void)removebuttoncolor
 {
     for (int i=0; i<buttonarr.count; i++)
@@ -108,7 +114,7 @@
 {
     [drumPlayer stop];
    // [MainAudio stop];
-  // [self dismissPopupViewControllerWithanimationType:MJPopupViewAnimationFade];
+   //[self dismissPopupViewControllerWithanimationType:MJPopupViewAnimationFade];
     
     NSString *soundstr=[NSString stringWithFormat:@"%d",soundNo];
     NSMutableArray * nameArray=[[NSMutableArray alloc]initWithObjects:@"none",@"peace",@"deep water",@"gentle persistance",@"joy",@"passion",@"power",@"prosperity",@"taking action",@"keeping still",@"allowing", nil];
@@ -175,7 +181,6 @@
     //[drumPlayer play];
     [mainView playDrumForMp3:damru1 andNewDamru2:damru2];
     [HUD setHidden:TRUE];
-    [self dismissPopupViewControllerWithanimationType:MJPopupViewAnimationFade];
 }
 
 
@@ -328,6 +333,7 @@
             [self Perchase];
         }
     }
+        [self.delegate cancelButtonClicked:self];
 }
 
 -(void)Perchase
