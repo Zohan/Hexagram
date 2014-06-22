@@ -80,6 +80,7 @@
 		146DE8DF1924905E00128245 /* 97.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 146DE89F1924905E00128245 /* 97.aiff */; };
 		146DE8E01924905E00128245 /* 98.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 146DE8A01924905E00128245 /* 98.aiff */; };
 		146DE8E11924905E00128245 /* 99.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 146DE8A11924905E00128245 /* 99.aiff */; };
+		14F64D9519578981009599F6 /* Hexa.png in Resources */ = {isa = PBXBuildFile; fileRef = 14F64D9419578981009599F6 /* Hexa.png */; };
 		14FF303E19300B720041CAC1 /* allowing.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 14FF303419300B720041CAC1 /* allowing.mp3 */; };
 		14FF303F19300B720041CAC1 /* deep water.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 14FF303519300B720041CAC1 /* deep water.mp3 */; };
 		14FF304019300B720041CAC1 /* gentle persistance.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 14FF303619300B720041CAC1 /* gentle persistance.mp3 */; };
@@ -336,6 +337,7 @@
 		146DE89F1924905E00128245 /* 97.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = 97.aiff; path = Sounds/97.aiff; sourceTree = "<group>"; };
 		146DE8A01924905E00128245 /* 98.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = 98.aiff; path = Sounds/98.aiff; sourceTree = "<group>"; };
 		146DE8A11924905E00128245 /* 99.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = 99.aiff; path = Sounds/99.aiff; sourceTree = "<group>"; };
+		14F64D9419578981009599F6 /* Hexa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Hexa.png; sourceTree = "<group>"; };
 		14FF303419300B720041CAC1 /* allowing.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = allowing.mp3; sourceTree = "<group>"; };
 		14FF303519300B720041CAC1 /* deep water.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "deep water.mp3"; sourceTree = "<group>"; };
 		14FF303619300B720041CAC1 /* gentle persistance.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "gentle persistance.mp3"; sourceTree = "<group>"; };
@@ -966,6 +968,7 @@
 		8D9F435118E46F1200B0B28E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				14F64D9419578981009599F6 /* Hexa.png */,
 				14FF3048193409A00041CAC1 /* Meditation_grey.png */,
 				14FF3049193409A00041CAC1 /* Meditation.png */,
 				1450F36F1922E99A00821D46 /* Drum_Grey.png */,
@@ -1163,6 +1166,7 @@
 				F2C11C3F1917C01F007B530C /* Color8-5.png in Resources */,
 				146DE8D81924905E00128245 /* 88.aiff in Resources */,
 				8D9C289E1918ADEC00C2A9B2 /* Color5-3.png in Resources */,
+				14F64D9519578981009599F6 /* Hexa.png in Resources */,
 				146DE8A81924905E00128245 /* 28.aiff in Resources */,
 				146DE8C91924905E00128245 /* 69.aiff in Resources */,
 				F296D4D21917ACA200DEE8A5 /* Color1-6.png in Resources */,

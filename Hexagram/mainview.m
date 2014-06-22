@@ -124,7 +124,7 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
     if ([UIDevice currentResolution] == UIDevice_iPhoneTallerHiRes)
     {
         
-        UIImageView *image_start = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Wheel Updated 2"]];
+        UIImageView *image_start = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Hexa"]];
         image_start.frame = CGRectMake(46, 35, 225, 225);
         bagua = image_start;
         [self.view addSubview:bagua];
@@ -143,7 +143,7 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
     else
     {
         
-        UIImageView *image_start = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Wheel Updated 2"]];
+        UIImageView *image_start = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Hexa"]];
         image_start.frame = CGRectMake(46, 17, 225, 225);
         bagua = image_start;
         [self.view addSubview:bagua];
