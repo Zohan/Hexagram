@@ -31,7 +31,6 @@
 {
     [super viewDidLoad];
     ListArr=[[NSMutableArray alloc]initWithObjects:@"Peace",@"Allowing",@"Deep Water",@"Gentle Persistance",@"Joy",@"Passion",@"Power",@"Prosperity",@"Taking Action",@"Keeping Still", nil];
-    
     buttonarr=[[NSMutableArray alloc]init];
     buttonarr =[[[NSUserDefaults standardUserDefaults]objectForKey:@"PerchaseArray"]mutableCopy];
     NSLog(@"alray perchase list : %@",buttonarr);
@@ -64,6 +63,10 @@
 
 -(void)removebuttoncolor
 {
+    if([mainView isPremiumVersion]) {
+        [self highlightAllButtons];
+    }
+    
     for (int i=0; i<buttonarr.count; i++)
     {
         if ([[buttonarr objectAtIndex:i]isEqualToString:@"9"])
@@ -102,7 +105,6 @@
         {
             [KeepingStill setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         }
-        
     }
 }
 
@@ -110,6 +112,20 @@
 {
     
 }
+
+-(void) highlightAllButtons
+{
+    [Allowing setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [DeepWater setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [Gentle_Btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [Joy setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [Passion setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [Power setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [Prosperity setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [TakingAction setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [KeepingStill setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+}
+
 -(void)SoundPlay
 {
     [drumPlayer stop];
@@ -193,7 +209,8 @@
     {
         soundNo=1;
         NSLog(@"Peace_Click");
-        [self SoundPlay];
+        ForPerchase=@"Peace";
+        //[self SoundPlay];
     }
     else if ([sender isEqual:Allowing])
     {
@@ -201,15 +218,6 @@
         soundNo=9;
         ForPerchase=@"Allowing";
         product_id=[[NSString alloc]initWithFormat:@"%@",@"allowing"];
-        NSString *Nsuserdefault =[[NSUserDefaults standardUserDefaults]objectForKey:ForPerchase];
-        if ([Nsuserdefault isEqualToString:@"Yes"])
-        {
-            [self SoundPlay];
-        }
-        else
-        {
-            [self Perchase];
-        }
     }
     else if ([sender isEqual:DeepWater])
     {
@@ -217,105 +225,42 @@
         soundNo=2;
         ForPerchase=@"DeepWater";
         product_id=[[NSString alloc]initWithFormat:@"%@",@"deepwater"];
-        NSString *Nsuserdefault =[[NSUserDefaults standardUserDefaults]objectForKey:ForPerchase];
-        if ([Nsuserdefault isEqualToString:@"Yes"])
-        {
-            [self SoundPlay];
-        }
-        else
-        {
-            [self Perchase];
-        }
     }
     else if ([sender isEqual:Gentle_Btn])
     {
         soundNo=3;
         ForPerchase=@"gentlepersistance";
          product_id=[[NSString alloc]initWithFormat:@"%@",@"gentlepersistance"];
-        NSString *Nsuserdefault =[[NSUserDefaults standardUserDefaults]objectForKey:ForPerchase];
-        if ([Nsuserdefault isEqualToString:@"Yes"])
-        {
-            [self SoundPlay];
-        }
-        else
-        {
-            [self Perchase];
-        }
     }
     else if ([sender isEqual:Joy])
     {
         soundNo=4;
         ForPerchase=@"Joy";
         product_id=[[NSString alloc]initWithFormat:@"%@",@"joy"];
-        NSString *Nsuserdefault =[[NSUserDefaults standardUserDefaults]objectForKey:ForPerchase];
-        if ([Nsuserdefault isEqualToString:@"Yes"])
-        {
-            [self SoundPlay];
-        }
-        else
-        {
-            [self Perchase];
-        }
     }
     else if ([sender isEqual:Passion])
     {
         soundNo=5;
          ForPerchase=@"Passion";
         product_id=[[NSString alloc]initWithFormat:@"%@",@"passion"];
-        NSString *Nsuserdefault =[[NSUserDefaults standardUserDefaults]objectForKey:ForPerchase];
-        if ([Nsuserdefault isEqualToString:@"Yes"])
-        {
-            [self SoundPlay];
-        }
-        else
-        {
-            [self Perchase];
-        }
     }
     else if ([sender isEqual:Power])
     {
         soundNo=6;
        ForPerchase=@"Power";
         product_id=[[NSString alloc]initWithFormat:@"%@",@"power"];
-        NSString *Nsuserdefault =[[NSUserDefaults standardUserDefaults]objectForKey:ForPerchase];
-        if ([Nsuserdefault isEqualToString:@"Yes"])
-        {
-            [self SoundPlay];
-        }
-        else
-        {
-            [self Perchase];
-        }
     }
     else if ([sender isEqual:Prosperity])
     {
         soundNo=7;
         ForPerchase=@"Prosperity";
         product_id=[[NSString alloc]initWithFormat:@"%@",@"prosperity"];
-        NSString *Nsuserdefault =[[NSUserDefaults standardUserDefaults]objectForKey:ForPerchase];
-        if ([Nsuserdefault isEqualToString:@"Yes"])
-        {
-            [self SoundPlay];
-        }
-        else
-        {
-            [self Perchase];
-        }
     }
     else if ([sender isEqual:TakingAction])
     {
         soundNo=8;
          ForPerchase=@"TakingAction";
         product_id=[[NSString alloc]initWithFormat:@"%@",@"takingaction"];
-        NSString *Nsuserdefault =[[NSUserDefaults standardUserDefaults]objectForKey:ForPerchase];
-        if ([Nsuserdefault isEqualToString:@"Yes"])
-        {
-            [self SoundPlay];
-        }
-        else
-        {
-            [self Perchase];
-        }
     }
     
     else if ([sender isEqual:KeepingStill])
@@ -323,15 +268,18 @@
         soundNo=10;
         ForPerchase=@"Keeping Still";
         product_id=[[NSString alloc]initWithFormat:@"%@",@"keeping_still"];
-        NSString *Nsuserdefault =[[NSUserDefaults standardUserDefaults]objectForKey:ForPerchase];
-        if ([Nsuserdefault isEqualToString:@"Yes"])
-        {
-            [self SoundPlay];
-        }
-        else
-        {
-            [self Perchase];
-        }
+    } else {
+        
+    }
+    
+    NSString *Nsuserdefault =[[NSUserDefaults standardUserDefaults]objectForKey:ForPerchase];
+    if ([ForPerchase isEqualToString:@"Peace"] || [Nsuserdefault isEqualToString:@"Yes"] || [mainView isPremiumVersion])
+    {
+        [self SoundPlay];
+    }
+    else
+    {
+        [self Perchase];
     }
         [self.delegate cancelButtonClicked:self];
 }

@@ -14,13 +14,8 @@
 #import "UIDevice+Resolutions.h"
 #import "SetTimer.h"
 
-
-static NSString * const sampleDescription1 = @"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
-static NSString * const sampleDescription2 = @"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore.";
-static NSString * const sampleDescription3 = @"Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.";
-static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit.";
-
 #define DEGREES_TO_RADIANS(angle) (angle / 180.0 * M_PI)
+#define IS_PREMIUM_VERSION 0
 
 @interface mainview ()<MJSecondPopupDelegate>
 {
@@ -45,67 +40,33 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
     return self;
 }
 
--(void)viewWillAppear:(BOOL)animated
-{
-    buttonarr=[[NSMutableArray alloc]init];
-    buttonarr =[[[NSUserDefaults standardUserDefaults]objectForKey:@"PerchaseArray"]mutableCopy];
-    
-    NSLog(@"alray perchase list : %@",buttonarr);
-    
-    [Swipeimgeview setUserInteractionEnabled:YES];
-    [super viewWillAppear:animated];
-    
-    if (MaintimeSTR.length==0||MaintimeSTR == nil)
-    {
-        /*if (note==20)
-        {
-            
-
-        }*/
-    }
-    else
-    {
-        CountTimer=YES;
-        //Weird timing bug
-        int tt=[MaintimeSTR intValue]*60+1;
-        
-        [Timer_Btn setTitle:MaintimeSTR forState:UIControlStateNormal];
-        
-        databaseDate = [NSDate dateWithTimeIntervalSinceNow:tt];
-        //[self playPauseUnstick];
-        [self updateTimeLeft];
-        CountTimer = NO;
-    }
-    
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     setfirsttimetimer=20;
     CONTINUTIMES=0;
-     Mainarr=[[NSMutableArray alloc]initWithObjects:@"Taking Action",@"Allowing",@"Challenges",@"Innocence",@"Inevitability",@"Confrontation",@"Rallying",@"Union",@"Preparing",@"Cautious Action",@"Peace",@"Chaos",@"Fellowship",@"Prosperity",@"Humility",@"Energy Rising",@"Following",@"Healing",@"Thriving",@"Observation",@"Clearing Paths",@"Beauty",@"Release",@"Restoration",@"Presence",@"Focused Intention",@"Nourishment",@"Pressure",@"Deep Water",@"Passion",@"Attraction",@"Long Lasting", @"Restraint",@"Increasing Energy",@"Success",@"Dark Times",@"Family",@"Opposition",@"Obstacles",@"Freedom",@"Self-Discipline",@"Good Fortune",@"Determination",@"Over Indulgence",@"Unified Force",@"Growth",@"Emptiness",@"Feeding the Soul", @"Revolution",@"Alchemy",@"Power",@"Keeping Still",@"Steady Progress",@"Impulsiveness",@"Abundance",@"Restlessness",@"Gentle Persistance",@"Joy",@"Dissolving",@"Boundaries",@"Wisdom",@"Details",@"After Victory",@"Before Victory",nil];
+    Mainarr=[[NSMutableArray alloc]initWithObjects:@"Taking Action",@"Allowing",@"Challenges",@"Innocence",@"Inevitability",@"Confrontation",@"Rallying",@"Union",@"Preparing",@"Cautious Action",@"Peace",@"Chaos",@"Fellowship",@"Prosperity",@"Humility",@"Energy Rising",@"Following",@"Healing",@"Thriving",@"Observation",@"Clearing Paths",@"Beauty",@"Release",@"Restoration",@"Presence",@"Focused Intention",@"Nourishment",@"Pressure",@"Deep Water",@"Passion",@"Attraction",@"Long Lasting", @"Restraint",@"Increasing Energy",@"Success",@"Dark Times",@"Family",@"Opposition",@"Obstacles",@"Freedom",@"Self-Discipline",@"Good Fortune",@"Determination",@"Over Indulgence",@"Unified Force",@"Growth",@"Emptiness",@"Feeding the Soul", @"Revolution",@"Alchemy",@"Power",@"Keeping Still",@"Steady Progress",@"Impulsiveness",@"Abundance",@"Restlessness",@"Gentle Persistance",@"Joy",@"Dissolving",@"Boundaries",@"Wisdom",@"Details",@"After Victory",@"Before Victory",nil];
     
     purchaseableTrackArray =[[NSMutableArray alloc]initWithObjects:@"none",@"peace",@"deep water",@"gentle persistance",@"joy",@"passion",@"power",@"prosperity",@"taking action",@"keeping still",@"allowing", nil];
     
-   MultiArrayFirst =[[NSMutableArray alloc]initWithObjects:
-                                      @"9",@"5",@"7",@"8",@"7",@"9",@"5",@"7",
-                                      @"6",@"9",@"5",@"9",@"9",@"3",@"5",@"2",
-                                      @"4",@"8",@"5",@"6",@"3",@"8",@"8",@"5",
-                                      @"9",@"8",@"8",@"4",@"7",@"3",@"4",@"2",
-                                      @"9",@"2",@"3",@"5",@"6",@"3",@"7",@"2",
-                                      @"8",@"6",@"4",@"9",@"4",@"5",@"4",@"7",
-                                      @"4",@"3",@"2",@"8",@"6",@"2",@"2",@"3",
-                                      @"6",@"4",@"6",@"7",@"6",@"2",@"7",@"3",nil];
+    MultiArrayFirst =[[NSMutableArray alloc]initWithObjects:
+                      @"9",@"5",@"7",@"8",@"7",@"9",@"5",@"7",
+                      @"6",@"9",@"5",@"9",@"9",@"3",@"5",@"2",
+                      @"4",@"8",@"5",@"6",@"3",@"8",@"8",@"5",
+                      @"9",@"8",@"8",@"4",@"7",@"3",@"4",@"2",
+                      @"9",@"2",@"3",@"5",@"6",@"3",@"7",@"2",
+                      @"8",@"6",@"4",@"9",@"4",@"5",@"4",@"7",
+                      @"4",@"3",@"2",@"8",@"6",@"2",@"2",@"3",
+                      @"6",@"4",@"6",@"7",@"6",@"2",@"7",@"3",nil];
     MultiArraySecond =[[NSMutableArray alloc]initWithObjects:
-                                       @"9",@"5",@"2",@"7",@"9",@"7",@"7",@"5",
-                                       @"9",@"4",@"9",@"5",@"3",@"9",@"8",@"5",
-                                       @"2",@"6",@"4",@"5",@"2",@"3",@"5",@"2",
-                                       @"2",@"9",@"2",@"6",@"7",@"3",@"8",@"6",
-                                       @"8",@"9",@"5",@"3",@"3",@"4",@"8",@"7",
-                                       @"4",@"2",@"9",@"6",@"5",@"6",@"7",@"6",
-                                       @"3",@"6",@"2",@"8",@"8",@"4",@"3",@"8",
-                                       @"6",@"4",@"7",@"4",@"4",@"8",@"3",@"7",nil];
+                       @"9",@"5",@"2",@"7",@"9",@"7",@"7",@"5",
+                       @"9",@"4",@"9",@"5",@"3",@"9",@"8",@"5",
+                       @"2",@"6",@"4",@"5",@"2",@"3",@"5",@"2",
+                       @"2",@"9",@"2",@"6",@"7",@"3",@"8",@"6",
+                       @"8",@"9",@"5",@"3",@"3",@"4",@"8",@"7",
+                       @"4",@"2",@"9",@"6",@"5",@"6",@"7",@"6",
+                       @"3",@"6",@"2",@"8",@"8",@"4",@"3",@"8",
+                       @"6",@"4",@"7",@"4",@"4",@"8",@"3",@"7",nil];
     
     
     [HexaButton setHidden:YES];
@@ -129,7 +90,7 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
         bagua = image_start;
         [self.view addSubview:bagua];
         
-                
+        
         btn_start = [UIButton buttonWithType:UIButtonTypeCustom];
         btn_start.frame = CGRectMake(110, 97, 100.0, 100.0);
         UIImage *imag=[UIImage imageNamed:@"640x1136Fqce.png"];
@@ -180,6 +141,42 @@ static NSString * const sampleDescription4 = @"Nam libero tempore, cum soluta no
     
     btn_start.selected=YES;
     [self resetTime];
+}
+
+
+// Called when MJViewController closes
+-(void)viewWillAppear:(BOOL)animated
+{
+    buttonarr=[[NSMutableArray alloc]init];
+    buttonarr =[[[NSUserDefaults standardUserDefaults]objectForKey:@"PerchaseArray"]mutableCopy];
+    
+    NSLog(@"alray perchase list : %@",buttonarr);
+    
+    [Swipeimgeview setUserInteractionEnabled:YES];
+    [super viewWillAppear:animated];
+    
+    if (MaintimeSTR.length==0||MaintimeSTR == nil)
+    {
+        /*if (note==20)
+        {
+            
+
+        }*/
+    }
+    else
+    {
+        CountTimer=YES;
+        //Weird timing bug
+        int tt=[MaintimeSTR intValue]*60+1;
+        
+        [Timer_Btn setTitle:MaintimeSTR forState:UIControlStateNormal];
+        
+        databaseDate = [NSDate dateWithTimeIntervalSinceNow:tt];
+        //[self playPauseUnstick];
+        [self updateTimeLeft];
+        CountTimer = NO;
+    }
+    
 }
 
 -(void) addPlayPauseButton {
@@ -1176,9 +1173,13 @@ CGFloat angleBetweenLinesInDegrees(CGPoint beginLineA, CGPoint endLineA, CGPoint
     NSString * trackStringFromInt = [NSString stringWithFormat:@"%d", trackNumber];
     int indexOfTrack = 100;
     indexOfTrack = [buttonarr indexOfObject:trackStringFromInt];
-    if((indexOfTrack > 0 && indexOfTrack < 12) || [Hexaname isEqualToString:@"Peace"]) {
+    if((indexOfTrack > 0 && indexOfTrack < 12) || [Hexaname isEqualToString:@"Peace"] || IS_PREMIUM_VERSION) {
         return YES;
     } else return NO;
+}
+
+- (BOOL) isPremiumVersion {
+    return IS_PREMIUM_VERSION;
 }
 
 -(void)CHK_MP3_Sound

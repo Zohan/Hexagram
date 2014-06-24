@@ -79,8 +79,6 @@
 
 @property (strong, nonatomic) IBOutlet UILabel *Timer_Lbl;
 
-
-
 //+++++++++++++++++++++++++++++++++++++++
 @property (strong, nonatomic) IBOutlet UIImageView *ColorImg1;
 @property (strong, nonatomic) IBOutlet UIImageView *Swipeimage;
@@ -90,5 +88,6 @@
 
 - (void)playDrumForMp3:(int) newDamru andNewDamru2:(int) newDamru2;
 - (void) playDrumSound;
+- (BOOL) isPremiumVersion;
 
 @end

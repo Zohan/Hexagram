@@ -219,7 +219,6 @@
 		8D9F43A318E46F1200B0B28E /* HexagramKey.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8D9F437318E46F1200B0B28E /* HexagramKey.pdf */; };
 		8D9F43B118E46F1200B0B28E /* TileReference.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D9F438118E46F1200B0B28E /* TileReference.png */; };
 		8DA50C2D18EA96D2005532F6 /* UIView+Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DA50C2C18EA96D2005532F6 /* UIView+Toast.m */; };
-		8DA7FEBF1910CB97001670CD /* Wheel Updated 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 8DA7FEBE1910CB97001670CD /* Wheel Updated 2.png */; };
 		8DE6058018EBEBA000DF5356 /* MainView_Iphone3.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8DE6057F18EBEBA000DF5356 /* MainView_Iphone3.xib */; };
 		8DE6058418EBEBCF00DF5356 /* AddTimeNotification_IPhone3.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8DE6058318EBEBCF00DF5356 /* AddTimeNotification_IPhone3.xib */; };
 		8DE6058718EBF0DF00DF5356 /* UIDevice+Resolutions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DE6058618EBF0DF00DF5356 /* UIDevice+Resolutions.m */; };
@@ -489,7 +488,6 @@
 		8D9F438118E46F1200B0B28E /* TileReference.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TileReference.png; sourceTree = "<group>"; };
 		8DA50C2B18EA96D2005532F6 /* UIView+Toast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+Toast.h"; path = "../UIView+Toast.h"; sourceTree = "<group>"; };
 		8DA50C2C18EA96D2005532F6 /* UIView+Toast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+Toast.m"; path = "../UIView+Toast.m"; sourceTree = "<group>"; };
-		8DA7FEBE1910CB97001670CD /* Wheel Updated 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Wheel Updated 2.png"; sourceTree = "<group>"; };
 		8DE6057F18EBEBA000DF5356 /* MainView_Iphone3.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainView_Iphone3.xib; sourceTree = "<group>"; };
 		8DE6058318EBEBCF00DF5356 /* AddTimeNotification_IPhone3.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddTimeNotification_IPhone3.xib; sourceTree = "<group>"; };
 		8DE6058518EBF0DF00DF5356 /* UIDevice+Resolutions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+Resolutions.h"; sourceTree = "<group>"; };
@@ -835,7 +833,6 @@
 			isa = PBXGroup;
 			children = (
 				8D9BC57519091D5E00CA0944 /* Wheel Updated.png */,
-				8DA7FEBE1910CB97001670CD /* Wheel Updated 2.png */,
 				8D9F438118E46F1200B0B28E /* TileReference.png */,
 				8D9F437318E46F1200B0B28E /* HexagramKey.pdf */,
 				8D9D84B018E53CD600B5C778 /* Background.png */,
@@ -1174,7 +1171,6 @@
 				8D9C288D1918ADEC00C2A9B2 /* Color3-2.png in Resources */,
 				146DE8DD1924905E00128245 /* 95.aiff in Resources */,
 				8D9C288E1918ADEC00C2A9B2 /* Color3-3.png in Resources */,
-				8DA7FEBF1910CB97001670CD /* Wheel Updated 2.png in Resources */,
 				14FF304B193409A00041CAC1 /* Meditation.png in Resources */,
 				8D9F439218E46F1200B0B28E /* 640x1136Splash.png in Resources */,
 				146DE8A61924905E00128245 /* 26.aiff in Resources */,
