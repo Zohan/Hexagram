@@ -127,13 +127,13 @@
     
     [self addPlayPauseButton];
     [self addHelpButton];
-    [self addHexaBtn];
+    //[self addHexaBtn];
     [self addMP3IndicatorButton];
     MaintimeSTR=@"10:01";
     
     if (show==20)
     {
-        [self.view makeToast:@"Spin the wheel to Begin..."
+        [self.view makeToast:@"Spin the wheel, then tap the drum to begin meditation."
                     duration:3.0
                     position:@"center"
                        image:[UIImage imageNamed:@"640x1136Fqce"]];
@@ -357,25 +357,27 @@
 }
 
 -(void) playDrumTrack {
-    UIImage *drumImage=[UIImage imageNamed:@"Drum.png"];
-    [playDrumButton setTitle:@"" forState:UIControlStateNormal];
-    [playDrumButton setImage:drumImage forState:UIControlStateNormal];
-    [theAudio play];
-    CountTimer=YES;
-    playhexasound = 20;
-    [SoundTimer invalidate];
-    SoundTimer=nil;
-    SoundTimer=[[NSTimer alloc]init];
-    SoundTimer = [NSTimer scheduledTimerWithTimeInterval:1.0
+    if(damru > 0 && damru2 > 0) {
+        UIImage *drumImage=[UIImage imageNamed:@"Drum.png"];
+        [playDrumButton setTitle:@"" forState:UIControlStateNormal];
+        [playDrumButton setImage:drumImage forState:UIControlStateNormal];
+        [theAudio play];
+        CountTimer=YES;
+        playhexasound = 20;
+        [SoundTimer invalidate];
+        SoundTimer=nil;
+        SoundTimer=[[NSTimer alloc]init];
+        SoundTimer = [NSTimer scheduledTimerWithTimeInterval:1.0
                                                   target:self
                                                 selector:@selector(updateTimeLeft)
                                                 userInfo:nil
                                                  repeats:YES];
-    [self setTimeFromDisplay];
+        [self setTimeFromDisplay];
     
-    if(autoplayMP3) {
-        [MP3_Player play];
-        autoplayMP3 = false;
+        if(autoplayMP3) {
+            [MP3_Player play];
+            autoplayMP3 = false;
+        }
     }
 }
 
