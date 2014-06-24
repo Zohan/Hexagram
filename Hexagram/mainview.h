@@ -49,6 +49,7 @@
     int firstcall;
     int setfirsttimetimer;
     int index,mp3isplay;
+    bool autoplayMP3;
     
     NSMutableArray *Mainarr,*purchaseableTrackArray, *MultiArrayFirst,*MultiArraySecond;
 }
@@ -86,7 +87,7 @@
 @property (strong, nonatomic) IBOutlet UIImageView *topImage;
 @property (strong, nonatomic) IBOutlet UIImageView *bottomImage;
 
-- (void)playDrumForMp3:(int) newDamru andNewDamru2:(int) newDamru2;
+- (void) loadDrumForMp3:(int) newDamru andNewDamru2:(int) newDamru2;
 - (void) playDrumSound;
 - (BOOL) isPremiumVersion;
 

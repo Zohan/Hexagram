@@ -40,7 +40,7 @@
     }
     
     NSString *path = [[NSBundle mainBundle] pathForResource:@"22" ofType:@"aiff"];
-    [PlayMP3 initWithContentsOfURL:[NSURL fileURLWithPath:path] error:NULL];
+    PlayMP3 = [PlayMP3 initWithContentsOfURL:[NSURL fileURLWithPath:path] error:NULL];
     
     [self removebuttoncolor];
     
@@ -195,7 +195,7 @@
     [[AVAudioSession sharedInstance] setActive: YES error: nil];
     [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
     //[drumPlayer play];
-    [mainView playDrumForMp3:damru1 andNewDamru2:damru2];
+    [mainView loadDrumForMp3:damru1 andNewDamru2:damru2];
     [HUD setHidden:TRUE];
 }
 

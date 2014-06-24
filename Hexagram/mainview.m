@@ -45,6 +45,7 @@
     [super viewDidLoad];
     setfirsttimetimer=20;
     CONTINUTIMES=0;
+    autoplayMP3 = FALSE;
     Mainarr=[[NSMutableArray alloc]initWithObjects:@"Taking Action",@"Allowing",@"Challenges",@"Innocence",@"Inevitability",@"Confrontation",@"Rallying",@"Union",@"Preparing",@"Cautious Action",@"Peace",@"Chaos",@"Fellowship",@"Prosperity",@"Humility",@"Energy Rising",@"Following",@"Healing",@"Thriving",@"Observation",@"Clearing Paths",@"Beauty",@"Release",@"Restoration",@"Presence",@"Focused Intention",@"Nourishment",@"Pressure",@"Deep Water",@"Passion",@"Attraction",@"Long Lasting", @"Restraint",@"Increasing Energy",@"Success",@"Dark Times",@"Family",@"Opposition",@"Obstacles",@"Freedom",@"Self-Discipline",@"Good Fortune",@"Determination",@"Over Indulgence",@"Unified Force",@"Growth",@"Emptiness",@"Feeding the Soul", @"Revolution",@"Alchemy",@"Power",@"Keeping Still",@"Steady Progress",@"Impulsiveness",@"Abundance",@"Restlessness",@"Gentle Persistance",@"Joy",@"Dissolving",@"Boundaries",@"Wisdom",@"Details",@"After Victory",@"Before Victory",nil];
     
     purchaseableTrackArray =[[NSMutableArray alloc]initWithObjects:@"none",@"peace",@"deep water",@"gentle persistance",@"joy",@"passion",@"power",@"prosperity",@"taking action",@"keeping still",@"allowing", nil];
@@ -144,7 +145,7 @@
 }
 
 
-// Called when MJViewController closes
+// Called when Purchase list menu closes
 -(void)viewWillAppear:(BOOL)animated
 {
     buttonarr=[[NSMutableArray alloc]init];
@@ -176,7 +177,6 @@
         [self updateTimeLeft];
         CountTimer = NO;
     }
-    
 }
 
 -(void) addPlayPauseButton {
@@ -302,7 +302,7 @@
     
 }
 
--(void)playDrumForMp3:(int) newDamru andNewDamru2:(int) newDamru2 {
+-(void)loadDrumForMp3:(int)newDamru andNewDamru2:(int) newDamru2 {
     damru = newDamru;
     damru2 = newDamru2;
     [self playDrumSound];
@@ -321,6 +321,14 @@
     [ColorPatern1 setHidden:NO];
     [ColorPatern2 setHidden:NO];
     [self MainLable];
+    
+    int value = [self convertHexagramNameToPurchaseTrackID:MP3Sound];
+    if([self hasTrackBeenPurchased:value]) {
+        autoplayMP3 = TRUE;
+        UIImage *imag=[UIImage imageNamed:@"Meditation.png"];
+        [toggleMP3Button setTitle:@"" forState:UIControlStateNormal];
+        [toggleMP3Button setBackgroundImage:imag forState:UIControlStateNormal];
+    }
     
 }
 
@@ -364,6 +372,11 @@
                                                 userInfo:nil
                                                  repeats:YES];
     [self setTimeFromDisplay];
+    
+    if(autoplayMP3) {
+        [MP3_Player play];
+        autoplayMP3 = false;
+    }
 }
 
 -(void) pauseDrumTrack {
@@ -1149,7 +1162,7 @@ CGFloat angleBetweenLinesInDegrees(CGPoint beginLineA, CGPoint endLineA, CGPoint
     damru2=[MainPattern1 intValue];
     stopplay=0;
     CountTimer=YES;
-    [self playDrumForMp3:damru2 andNewDamru2:damru];
+    [self loadDrumForMp3:damru2 andNewDamru2:damru];
     //playhexasound=20;
     
     [self resetTime];
