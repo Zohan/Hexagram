@@ -43,6 +43,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    // Hide Battery icon
+    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:YES];
+    
     setfirsttimetimer=20;
     CONTINUTIMES=0;
     autoplayMP3 = FALSE;
@@ -1302,6 +1306,11 @@ CGFloat angleBetweenLinesInDegrees(CGPoint beginLineA, CGPoint endLineA, CGPoint
     [[AVAudioSession sharedInstance] setActive: YES error: nil];
     [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
     [MP3_Player prepareToPlay];
+}
+
+- (BOOL)prefersStatusBarHidden
+{
+    return YES;
 }
 
 @end
