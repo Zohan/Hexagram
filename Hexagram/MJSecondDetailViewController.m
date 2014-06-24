@@ -164,8 +164,8 @@
             damru2 = 2;
             break;
         case 7:
-            damru1 = 9;
-            damru2 = 3;
+            damru1 = 3;
+            damru2 = 9;
             break;
         case 8:
             damru1 = 9;
@@ -276,12 +276,12 @@
     if ([ForPerchase isEqualToString:@"Peace"] || [Nsuserdefault isEqualToString:@"Yes"] || [mainView isPremiumVersion])
     {
         [self SoundPlay];
+        [self.delegate cancelButtonClicked:self];
     }
     else
     {
         [self Perchase];
     }
-        [self.delegate cancelButtonClicked:self];
 }
 
 -(void)Perchase
@@ -310,8 +310,8 @@
     for (SKPaymentTransaction *transaction in transactions)
     {
         UIAlertView *tmp = [[UIAlertView alloc]
-                            initWithTitle:@"Thanks you"
-                            message:@"purchase succesfully"
+                            initWithTitle:@"Thank You!"
+                            message:@"Meditation Track Purchased Successfully"
                             delegate:nil
                             cancelButtonTitle:nil
                             otherButtonTitles:@"Ok", nil];

@@ -148,7 +148,6 @@
     [self resetTime];
 }
 
-
 // Called when Purchase list menu closes
 -(void)viewWillAppear:(BOOL)animated
 {
@@ -163,10 +162,10 @@
     if (MaintimeSTR.length==0||MaintimeSTR == nil)
     {
         /*if (note==20)
-        {
-            
-
-        }*/
+         {
+         
+         
+         }*/
     }
     else
     {
@@ -325,6 +324,7 @@
     [ColorPatern1 setHidden:NO];
     [ColorPatern2 setHidden:NO];
     [self MainLable];
+    [self resetTime];
     
     int value = [self convertHexagramNameToPurchaseTrackID:MP3Sound];
     if([self hasTrackBeenPurchased:value]) {
@@ -952,11 +952,6 @@ CGFloat angleBetweenLinesInDegrees(CGPoint beginLineA, CGPoint endLineA, CGPoint
 
 - (IBAction)Purchase_BtnClick:(id)sender
 {
-    [theAudio stop];
-    [theAudio pause];
-    [MP3_Player stop];
-    CountTimer=NO;
-    playhexasound=0;
     if ([UIDevice currentResolution] == UIDevice_iPhoneTallerHiRes)
     {
         if (HexaButton.selected==YES)
@@ -989,7 +984,7 @@ CGFloat angleBetweenLinesInDegrees(CGPoint beginLineA, CGPoint endLineA, CGPoint
             //[self.view addSubview:btn_start];
         }
     }
-    
+    [self pauseDrumTrack];
     MJSecondDetailViewController *secondDetailViewController = [[MJSecondDetailViewController alloc] initWithNibName:@"MJSecondDetailViewController" bundle:nil];
     if(MP3_Player == nil)
     {

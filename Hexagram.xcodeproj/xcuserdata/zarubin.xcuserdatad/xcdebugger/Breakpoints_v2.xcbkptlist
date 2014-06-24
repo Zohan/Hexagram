@@ -362,11 +362,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Hexagram/mainview.m"
-            timestampString = "425278025.264105"
+            timestampString = "425284211.788798"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1167"
-            endingLineNumber = "1167"
+            startingLineNumber = "1162"
+            endingLineNumber = "1162"
             landmarkName = "-tableView:didSelectRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -378,11 +378,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Hexagram/mainview.m"
-            timestampString = "425278025.264105"
+            timestampString = "425284211.788798"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1169"
-            endingLineNumber = "1169"
+            startingLineNumber = "1164"
+            endingLineNumber = "1164"
             landmarkName = "-tableView:didSelectRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -394,11 +394,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Hexagram/mainview.m"
-            timestampString = "425278025.264105"
+            timestampString = "425284211.788798"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1008"
-            endingLineNumber = "1008"
+            startingLineNumber = "1003"
+            endingLineNumber = "1003"
             landmarkName = "-cancelButtonClicked:"
             landmarkType = "5">
          </BreakpointContent>
@@ -410,11 +410,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Hexagram/mainview.m"
-            timestampString = "425278025.264105"
+            timestampString = "425284211.788798"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1109"
-            endingLineNumber = "1109"
+            startingLineNumber = "1104"
+            endingLineNumber = "1104"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -474,11 +474,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Hexagram/mainview.m"
-            timestampString = "425278025.264105"
+            timestampString = "425284211.788798"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1194"
-            endingLineNumber = "1194"
+            startingLineNumber = "1189"
+            endingLineNumber = "1189"
             landmarkName = "-hasTrackBeenPurchased:"
             landmarkType = "5">
          </BreakpointContent>
@@ -490,11 +490,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Hexagram/mainview.m"
-            timestampString = "425278025.264105"
+            timestampString = "425284211.788798"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1195"
-            endingLineNumber = "1195"
+            startingLineNumber = "1190"
+            endingLineNumber = "1190"
             landmarkName = "-hasTrackBeenPurchased:"
             landmarkType = "5">
          </BreakpointContent>
@@ -506,43 +506,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Hexagram/mainview.m"
-            timestampString = "425278025.264105"
+            timestampString = "425284211.788798"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "155"
-            endingLineNumber = "155"
-            landmarkName = "-viewWillAppear:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Hexagram/mainview.m"
-            timestampString = "425278025.264105"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "156"
-            endingLineNumber = "156"
-            landmarkName = "-viewWillAppear:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Hexagram/mainview.m"
-            timestampString = "425278025.264105"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1026"
-            endingLineNumber = "1026"
+            startingLineNumber = "1021"
+            endingLineNumber = "1021"
             landmarkName = "-Hexa_Btn_Click:"
             landmarkType = "5">
          </BreakpointContent>
@@ -554,11 +522,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Hexagram/mainview.m"
-            timestampString = "425278025.264105"
+            timestampString = "425284211.788798"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1038"
-            endingLineNumber = "1038"
+            startingLineNumber = "1033"
+            endingLineNumber = "1033"
             landmarkName = "-Hexa_Btn_Click:"
             landmarkType = "5">
          </BreakpointContent>
@@ -570,11 +538,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Hexagram/mainview.m"
-            timestampString = "425278025.264105"
+            timestampString = "425284211.788798"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1050"
-            endingLineNumber = "1050"
+            startingLineNumber = "1045"
+            endingLineNumber = "1045"
             landmarkName = "-Hexa_Btn_Click:"
             landmarkType = "5">
          </BreakpointContent>
@@ -586,11 +554,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Hexagram/mainview.m"
-            timestampString = "425278025.264105"
+            timestampString = "425284211.788798"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1063"
-            endingLineNumber = "1063"
+            startingLineNumber = "1058"
+            endingLineNumber = "1058"
             landmarkName = "-Hexa_Btn_Click:"
             landmarkType = "5">
          </BreakpointContent>
@@ -602,11 +570,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Hexagram/mainview.m"
-            timestampString = "425278025.264105"
+            timestampString = "425284211.788798"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1072"
-            endingLineNumber = "1072"
+            startingLineNumber = "1067"
+            endingLineNumber = "1067"
             landmarkName = "-Hexa_Btn_Click:"
             landmarkType = "5">
          </BreakpointContent>
@@ -730,11 +698,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Hexagram/mainview.m"
-            timestampString = "425278025.264105"
+            timestampString = "425284211.788798"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1014"
-            endingLineNumber = "1014"
+            startingLineNumber = "1009"
+            endingLineNumber = "1009"
             landmarkName = "-Hexa_Btn_Click:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1092,11 +1060,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Hexagram/mainview.m"
-            timestampString = "425278025.264105"
+            timestampString = "425284211.788798"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1182"
-            endingLineNumber = "1182"
+            startingLineNumber = "1177"
+            endingLineNumber = "1177"
             landmarkName = "-tableView:didSelectRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1236,7 +1204,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Hexagram/MJSecondDetailViewController.m"
-            timestampString = "425271076.896814"
+            timestampString = "425282995.834522"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "278"
@@ -1316,11 +1284,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Hexagram/mainview.m"
-            timestampString = "425278025.264105"
+            timestampString = "425284582.350158"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "310"
-            endingLineNumber = "310"
+            startingLineNumber = "309"
+            endingLineNumber = "309"
             landmarkName = "-loadDrumForMp3:andNewDamru2:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1332,11 +1300,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Hexagram/mainview.m"
-            timestampString = "425278025.264105"
+            timestampString = "425284211.788798"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1196"
-            endingLineNumber = "1196"
+            startingLineNumber = "1191"
+            endingLineNumber = "1191"
             landmarkName = "-hasTrackBeenPurchased:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1364,11 +1332,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Hexagram/mainview.m"
-            timestampString = "425278025.264105"
+            timestampString = "425284582.350158"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "211"
-            endingLineNumber = "211"
+            startingLineNumber = "210"
+            endingLineNumber = "210"
             landmarkName = "-addHexaBtn"
             landmarkType = "5">
          </BreakpointContent>
@@ -1380,7 +1348,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Hexagram/mainview.m"
-            timestampString = "425278042.116334"
+            timestampString = "425284582.350158"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "48"
@@ -1396,12 +1364,92 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Hexagram/mainview.m"
-            timestampString = "425279135.757324"
+            timestampString = "425284211.788798"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1313"
-            endingLineNumber = "1313"
+            startingLineNumber = "1308"
+            endingLineNumber = "1308"
             landmarkName = "-prefersStatusBarHidden"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Hexagram/MJSecondDetailViewController.m"
+            timestampString = "425283005.59269"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "378"
+            endingLineNumber = "378"
+            landmarkName = "-productsRequest:didReceiveResponse:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Hexagram/mainview.m"
+            timestampString = "425283569.341917"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "330"
+            endingLineNumber = "330"
+            landmarkName = "-loadDrumForMp3:andNewDamru2:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Hexagram/mainview.m"
+            timestampString = "425283620.079266"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "331"
+            endingLineNumber = "331"
+            landmarkName = "-loadDrumForMp3:andNewDamru2:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Hexagram/MJSecondDetailViewController.m"
+            timestampString = "425283740.613307"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "388"
+            endingLineNumber = "388"
+            landmarkName = "-productsRequest:didReceiveResponse:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Hexagram/mainview.m"
+            timestampString = "425284211.788798"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "988"
+            endingLineNumber = "988"
+            landmarkName = "-Purchase_BtnClick:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
