@@ -90,7 +90,7 @@
     if ([UIDevice currentResolution] == UIDevice_iPhoneTallerHiRes)
     {
         
-        UIImageView *image_start = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Hexa"]];
+        UIImageView *image_start = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"BaguaWheel"]];
         image_start.frame = CGRectMake(46, 35, 225, 225);
         bagua = image_start;
         [self.view addSubview:bagua];
@@ -109,7 +109,7 @@
     else
     {
         
-        UIImageView *image_start = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Hexa"]];
+        UIImageView *image_start = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"BaguaWheel"]];
         image_start.frame = CGRectMake(46, 17, 225, 225);
         bagua = image_start;
         [self.view addSubview:bagua];
@@ -133,7 +133,7 @@
     [self addHelpButton];
     //[self addHexaBtn];
     [self addMP3IndicatorButton];
-    MaintimeSTR=@"10:01";
+    MaintimeSTR=@"10:00";
     
     if (show==20)
     {
@@ -171,13 +171,11 @@
     {
         CountTimer=YES;
         //Weird timing bug
-        int tt=[MaintimeSTR intValue]*60+1;
+        int tt=[MaintimeSTR intValue]*60;
         
         [Timer_Btn setTitle:MaintimeSTR forState:UIControlStateNormal];
         
         databaseDate = [NSDate dateWithTimeIntervalSinceNow:tt];
-        //[self playPauseUnstick];
-        [self updateTimeLeft];
         CountTimer = NO;
     }
 }
@@ -1236,7 +1234,7 @@ CGFloat angleBetweenLinesInDegrees(CGPoint beginLineA, CGPoint endLineA, CGPoint
 {
     
     [timer invalidate];
-      timer = nil;
+    timer = nil;
 
     if ([UIDevice currentResolution] == UIDevice_iPhoneTallerHiRes)
     {

@@ -30,16 +30,14 @@
     [super viewDidLoad];
     
     Mint=[[NSMutableArray alloc]init];
-    for (int i=1; i<60; i++)
+    for (int i=1; i<61; i++)
     {
         [Mint addObject:[NSString stringWithFormat:@"%d",i]];
     }
     
-    
     NSLog(@"hello===%@",Mint);
     CountTimer=20;
     [picker selectRow:9 inComponent:0 animated:YES];
-
 }
 
 
@@ -57,7 +55,7 @@
 {
     if (component==0)
     {
-        return 59;
+        return 60;
     }
     else if(component==1)
     {
@@ -71,7 +69,7 @@
     
     if(component==0)
     {
-        NSString *str=[NSString stringWithFormat:@"%@",[Mint objectAtIndex:row%59]];
+        NSString *str=[NSString stringWithFormat:@"%@",[Mint objectAtIndex:row%60]];
         return str;
     }else if(component == 1)
     {
@@ -102,7 +100,7 @@
     NSInteger row1 = [pickerView selectedRowInComponent:1];
     
     
-   MaintimeSTR=[NSString stringWithFormat:@"%@:%02d",[Mint objectAtIndex:row0%59],(row1%60)];
+   MaintimeSTR=[NSString stringWithFormat:@"%@:%02d",[Mint objectAtIndex:row0%60],(row1%60)];
     NSLog(@"hello==%@",MaintimeSTR);
     
     Timer_LBL.text=MaintimeSTR;
