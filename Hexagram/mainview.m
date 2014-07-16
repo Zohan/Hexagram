@@ -708,19 +708,9 @@
         
         if ([Timer_Btn.titleLabel.text isEqualToString:@"00:00" ])
         {
-            [theAudio stop];
-            [MP3_Player stop];
-            
-            int tt=[MaintimeSTR intValue]*60;
-            
-            databaseDate = [NSDate dateWithTimeIntervalSinceNow:tt];
-            remainingSec = [databaseDate timeIntervalSinceNow];
-            
-            NSInteger remainder = ((NSInteger)remainingSec)% 3600;
-            NSInteger minutess = remainder / 60;
-            NSInteger secondss = remainder % 60;
-            
-            [Timer_Btn setTitle:[NSString stringWithFormat:@"%02d:%02d",minutess,secondss] forState:UIControlStateNormal];
+            [self pauseDrumTrack];
+            [self pauseMP3Track];
+            [self resetTime];
             firsttimetimer = 0;
             setfirsttimetimer = 20;
             [SoundTimer invalidate];
