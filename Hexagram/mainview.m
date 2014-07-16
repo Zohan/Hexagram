@@ -1259,10 +1259,8 @@ CGFloat angleBetweenLinesInDegrees(CGPoint beginLineA, CGPoint endLineA, CGPoint
             //[self.view addSubview:btn_start];
         }
     }
-    if([MP3_Player isPlaying] || [theAudio isPlaying]) {
-        [theAudio pause];
-        [MP3_Player pause];
-    }
+    [self pauseDrumTrack];
+    [self pauseMP3Track];
     SetTimer *timervw=[[SetTimer alloc]initWithNibName:@"SetTimer" bundle:nil];
    
     [self presentViewController:timervw animated:YES completion:nil];
