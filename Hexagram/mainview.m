@@ -176,6 +176,8 @@
         [Timer_Btn setTitle:MaintimeSTR forState:UIControlStateNormal];
         
         databaseDate = [NSDate dateWithTimeIntervalSinceNow:tt];
+        //[self setTimeFromDisplay];
+        [self resetTime];
         CountTimer = NO;
     }
 }
@@ -396,7 +398,7 @@
     [SoundTimer invalidate];
     SoundTimer=nil;
     NSTimeInterval remainingSec = [databaseDate timeIntervalSinceNow];
-    NSInteger remainder = ((NSInteger)remainingSec)% 3600;
+    NSInteger remainder = ((NSInteger)remainingSec)% 7200;
     
     timestop=remainder;
 
@@ -581,7 +583,7 @@
     NSTimeInterval remainingSec = tt;
     timestop = tt;
 
-    NSInteger remainder = ((NSInteger)remainingSec)% 3600;
+    NSInteger remainder = ((NSInteger)remainingSec)% 7200;
     NSInteger minutess = remainder / 60;
     NSInteger secondss = remainder % 60;
     
@@ -697,7 +699,7 @@
 {
     if(CountTimer == YES || CountTimer == 0) {
         NSTimeInterval remainingSec = [databaseDate timeIntervalSinceNow];
-        NSInteger remainder = ((NSInteger)remainingSec)% 3600;
+        NSInteger remainder = ((NSInteger)remainingSec)% 7200;
         NSInteger minutess = remainder / 60;
         NSInteger secondss = remainder % 60;
         
